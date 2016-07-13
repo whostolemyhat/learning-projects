@@ -1,6 +1,5 @@
 // 1. Write a programme which finds the factorial of a number entered by the user
 #include <iostream>
-#include <ctype>
 
 using std::cout;
 using std::cin;
@@ -20,7 +19,7 @@ int main() {
   int num;
   cin >> num;
 
-  if(!isdigit(num)) {
+  if(!cin) {
     cout << "That's not a number." << endl;
 
     return 1;
