@@ -1,8 +1,6 @@
-// read user input
-// check it's a number
-// find factorial
-// 4! = 4 + 3 + 2 + 1 = 10
+// 1. Write a programme which finds the factorial of a number entered by the user
 #include <iostream>
+#include <ctype>
 
 using std::cout;
 using std::cin;
@@ -22,7 +20,13 @@ int main() {
   int num;
   cin >> num;
 
-  cout << factorial(num);
+  if(!isdigit(num)) {
+    cout << "That's not a number." << endl;
+
+    return 1;
+  }
+
+  cout << factorial(num) << endl;;
 
   return 0;
 }
