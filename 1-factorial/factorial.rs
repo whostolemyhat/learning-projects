@@ -1,6 +1,6 @@
 use std::io;
 
-fn factorial(num: u32) -> u32 {
+fn factorial(num: u64) -> u64 {
   if num < 1 {
     return 0;
   }
@@ -9,7 +9,7 @@ fn factorial(num: u32) -> u32 {
 }
 
 fn main() {
-  println!("Enter a number:");
+  println!("Enter a number: ");
 
   let mut input_text = String::new();
   io::stdin()
@@ -17,7 +17,7 @@ fn main() {
     .expect("Failed to read input");
 
   // todo: better error handling
-  let num = input_text.trim().parse::<u32>().expect("That's not a number");
+  let num = input_text.trim().parse::<u64>().expect("That's not a number");
 
   println!("{}", factorial(num));
 }
