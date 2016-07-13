@@ -5,7 +5,7 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 ## Beginner
 
 1.  Write a programme which finds the factorial of a number entered by the user. (check for all conditions).
-2.  Develop a programme to convert currency X to currency Y and visa versa.
+2.  Develop a programme to convert currency X to currency Y and vice versa.
 3.  Write a programme that print out the following, user will input the top number:
 ```*****
 ****
