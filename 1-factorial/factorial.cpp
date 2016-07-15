@@ -1,4 +1,5 @@
 // 1. Write a programme which finds the factorial of a number entered by the user
+// g++ -Wall name.cpp -o name
 #include <iostream>
 
 using std::cout;
