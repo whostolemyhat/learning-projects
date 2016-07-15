@@ -5,7 +5,7 @@ int main() {
   std::cout << "Enter a number: ";
 
   int num;
-  std::cin > num;
+  std::cin >> num;
 
   if(!std::cin) {
     std::cout << "That's no number!";
