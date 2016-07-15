@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <stdlib.h>
-#include <time.h>
+#include <stdlib.h> // rand, srand
+#include <time.h> // time
 
 std::string first() {
   return "I'm from the first function!";
@@ -16,6 +16,7 @@ std::string third() {
 }
 
 int main() {
+  // seed random
   srand(time(NULL));
 
   int num = rand() % 3 + 1;
