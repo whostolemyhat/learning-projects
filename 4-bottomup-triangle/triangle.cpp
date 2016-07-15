@@ -13,7 +13,7 @@ int main() {
   }
 
   for(int i = 1; i < num + 1; i++) {
-    std::cout << std::string(num, '*') << std::endl;
+    std::cout << std::string(i, '*') << std::endl;
   }
 
   return 0;
