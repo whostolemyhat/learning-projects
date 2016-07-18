@@ -1,13 +1,13 @@
 #include <iostream>
 
-int fib(int x) {
-  // std::cout << x << std::endl;
-  if(x < 2) {
-    return 1;
-  }
+// int fib(int x) {
+//   // std::cout << x << std::endl;
+//   if(x < 2) {
+//     return 1;
+//   }
 
-  return fib(x - 2) + fib(x - 1);
-}
+//   return fib(x - 2) + fib(x - 1);
+// }
 
 int main() {
   // int num;
@@ -17,7 +17,24 @@ int main() {
   //   std::cout << "That's no number" << std::endl;
   // }
 
-  std::cout << fib(5);
+  // std::cout << fib(5);
+  int target = 5;
+  int first = 1;
+  int second = 1;
+  int temp;
+  for(int i = 0; i < target; i++) {
+    if(target < 2) {
+      std::cout << first;
+      break;
+    }
+
+    std::cout << first + second;
+
+    // change vars
+    temp = second;
+    first = second;
+    second = first + temp;
+  }
 
   return 0;
 }
