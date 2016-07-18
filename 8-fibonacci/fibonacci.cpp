@@ -24,11 +24,11 @@ int main() {
   int temp;
   for(int i = 0; i < target; i++) {
     if(target < 2) {
-      std::cout << first;
+      std::cout << first << std::endl;
       break;
     }
 
-    std::cout << first + second;
+    std::cout << first + second << std::endl;
 
     // change vars
     temp = second;
