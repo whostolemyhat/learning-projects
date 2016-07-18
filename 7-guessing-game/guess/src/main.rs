@@ -18,7 +18,12 @@ fn main() {
       .read_line(&mut input_text)
       .expect("Failed to read input");
 
-    let guess = input_text.trim().parse::<i32>().expect("That's no number!");
+    // Don't crash on expected error!
+    let guess: i32 = match input_text.trim().parse() {
+      Ok(num) => num,
+      Err(_) => continue
+    };
+
     let difference = (num - guess).abs();
 
     match difference {
