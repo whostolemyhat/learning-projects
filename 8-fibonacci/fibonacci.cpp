@@ -1,7 +1,7 @@
 #include <iostream>
 
 int fib(int x) {
-  std::cout << x << std::endl;
+  // std::cout << x << std::endl;
   if(x < 2) {
     return 1;
   }
@@ -10,12 +10,12 @@ int fib(int x) {
 }
 
 int main() {
-  int num;
-  std::cin >> num;
+  // int num;
+  // std::cin >> num;
 
-  if(!std::cin) {
-    std::cout << "That's no number" << std::endl;
-  }
+  // if(!std::cin) {
+  //   std::cout << "That's no number" << std::endl;
+  // }
 
   std::cout << fib(5);
 
