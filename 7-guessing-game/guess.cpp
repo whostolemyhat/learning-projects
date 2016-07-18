@@ -18,6 +18,7 @@ int main() {
 
     if(!std::cin) {
       std::cout << "That's not a number!" << std::endl;
+      break;
     }
 
     int difference = abs(target - guess);
@@ -36,6 +37,7 @@ int main() {
     } else {
       std::cout << "Correct! The magic number is " << target << std::endl;
       std::cout << "You found the magic number in " << guesses << " guesses" << std::endl;
+      correct = true;
     }
   }
 
