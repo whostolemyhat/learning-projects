@@ -1,12 +1,11 @@
 #include <iostream>
 
-int fib(i, total, target) {
-  if(i == target) {
-    return total;
+int fib(int x) {
+  if(x <= 1) {
+    return 1;
   }
 
-  i++;
-  total = fib(i, total, target);
+  return fib(x - 1) + fib(x - 2);
 }
 
 int main() {
