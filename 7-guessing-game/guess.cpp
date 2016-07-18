@@ -13,14 +13,14 @@ int main() {
   while(!correct) {
     std::cout << "Enter your guess: ";
     int guess;
-    cin >> guess;
+    std::cin >> guess;
     guesses++;
 
-    if(!cin) {
+    if(!std::cin) {
       std::cout << "That's not a number!" << std::endl;
     }
 
-    int difference = std::abs(target - guess);
+    int difference = abs(target - guess);
     if(difference < 10) {
       std::cout << "Close!" << std::endl;
     } else if(difference < 25) {
