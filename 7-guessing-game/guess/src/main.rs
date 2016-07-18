@@ -2,6 +2,7 @@ extern crate rand;
 
 use rand::Rng;
 use std::io;
+use std::cmp::Ordering;
 
 fn main() {
   let num = rand::thread_rng().gen_range(1, 100);
@@ -28,14 +29,14 @@ fn main() {
       _ => println!("Nope.")
     }
 
-    if guess < num {
-      println!("{} is too low! Try again.", guess);
-    } else if guess > num {
-      println!("{} is too high! Try again.", guess);
-    } else if guess == num {
-      println!("{} is the magic number.", num);
-      println!("You got the magic number in {} guesses.", guesses);
-      correct = true;
+    match guess.cmp(&num) {
+      Ordering::Less => println!("{} is too low! Try again.", guess),
+      Ordering::Greater => println!("{} is too high! Try again.", guess),
+      Ordering::Equal => {
+        println!("{} is the magic number.", num);
+        println!("You got the magic number in {} guesses.", guesses);
+        correct = true;
+      }
     }
   }
 }
