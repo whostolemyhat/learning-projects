@@ -28,7 +28,7 @@ int main() {
   int i = 0;
   // for(int i = 0; i < target; i++) {
   while(output < target) {
-    if(output <= 1) {
+    if(i <= 1) {
       output = i;
     } else {
       output = first + second;
