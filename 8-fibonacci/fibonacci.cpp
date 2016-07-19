@@ -22,21 +22,22 @@ int main() {
   // this prints out up to nth fibonacci
   int target = 5;
   int first = 0;
-  int second = 1;
+  int second = 0;
   // int temp;
   int output = 0;
   // for(int i = 0; i < target; i++) {
   while(output < target) {
-    // if(output == 0) {
-    //   std::cout << first << " ";
+    if(output == 0) {
+      first++;
     //   output = first;
     //   continue;
-    // }
+    }
 
-    // if(output == 1) {
+    if(output == 1) {
+      second++;
     //   std::cout << second << " ";
     //   continue;
-    // }
+    }
 
     output = first + second;
     std::cout << output << " ";
