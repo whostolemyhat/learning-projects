@@ -11,16 +11,17 @@ int fib(int x) {
 }
 
 int main() {
-  // int num;
-  // std::cin >> num;
+  std::cout << "Enter target number: ";
+  int target;
+  std::cin >> target;
 
-  // if(!std::cin) {
-  //   std::cout << "That's no number" << std::endl;
-  // }
+  if(!std::cin) {
+    std::cout << "That's no number" << std::endl;
+  }
 
 
   // this prints out up to nth fibonacci
-  int target = 5;
+  // int target = 5;
   int first = 0;
   int second = 1;
 
