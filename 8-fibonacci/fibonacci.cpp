@@ -1,5 +1,6 @@
 #include <iostream>
 
+// this calcs nth fibonacci number
 // int fib(int x) {
 //   // std::cout << x << std::endl;
 //   if(x < 2) {
@@ -17,28 +18,32 @@ int main() {
   //   std::cout << "That's no number" << std::endl;
   // }
 
-  // std::cout << fib(5);
+
+  // this prints out up to nth fibonacci
   int target = 5;
   int first = 1;
   int second = 1;
-  int temp;
-  for(int i = 0; i < target; i++) {
-    if(i == 0) {
-      std::cout << first << std::endl;
+  // int temp;
+  int output = 0;
+  // for(int i = 0; i < target; i++) {
+  while(output < target) {
+    if(output == 0) {
+      std::cout << first << " ";
       continue;
     }
 
-    if(i == 1) {
-      std::cout << second << std::endl;
+    if(output == 1) {
+      std::cout << second << " ";
       continue;
     }
 
-    std::cout << first + second << std::endl;
+    output = first + second;
+    std::cout << output << " ";
 
     // change vars
-    temp = second;
+    // temp = second;
     first = second;
-    second = first + temp;
+    second = output;
   }
 
   return 0;
