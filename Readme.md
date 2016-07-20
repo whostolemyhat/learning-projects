@@ -4,8 +4,8 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 
 ## Beginner
 
-- [x] Write a programme which finds the factorial of a number entered by the user. (check for all conditions).
-- [x] Develop a programme to convert currency X to currency Y and vice versa.
+1. [x] Write a programme which finds the factorial of a number entered by the user. (check for all conditions).
+2. [x] Develop a programme to convert currency X to currency Y and vice versa.
 - [x] Write a programme that print out the following, user will input the top number:
 
 ```
