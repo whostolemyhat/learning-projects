@@ -83,3 +83,5 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 - [ ] Write a programme to plot a simple x-y graph for a harcoded function (e.g. y=cos(x)). It should be possible to zoom in on any part of the graph.
 - [ ] Write a programme to plot a graph of given equation of form y=f(x) and a range for x as command line arguments. (e.g. my_graph_plotter -eq="y=x*x" -xmin=-10, -xmax=10) (PS: more to do with equation solving than graphics)
 - [ ] Write the classic brick break-out game (Arkanoid/Breakout)
+
+- [make a pokedex](http://codereview.stackexchange.com/questions/135293/basic-pokedex-in-c) - use a database, enums for types/gender etc
