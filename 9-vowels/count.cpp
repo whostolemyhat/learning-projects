@@ -1,6 +1,5 @@
 // Given a string, determine how many of the characters are vowels and
-// how many are consonants. Terminate the string when the input
-// character encountered is non-alphabetic.
+// how many are consonants.
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,7 +10,6 @@ int main() {
   std::cout << "Enter a string:" << std::endl;
 
   std::string input;
-  // input >> std::cin;
   getline(std::cin, input);
 
   if(!std::cin) {
@@ -20,7 +18,6 @@ int main() {
 
   std::cout << input << std::endl;
 
-  // std::string vowels[] = { "a", "e", "i", "o", "u" };
   std::vector<char> vowels = {'a', 'e', 'i', 'o', 'u'};
   std::vector<char>::iterator it;
   int vowel_count = 0;
