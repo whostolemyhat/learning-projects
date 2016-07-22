@@ -16,8 +16,6 @@ int main() {
     std::cout << "That's no string!" << std::endl;
   }
 
-  std::cout << input << std::endl;
-
   std::vector<char> vowels = {'a', 'e', 'i', 'o', 'u'};
   std::vector<char>::iterator it;
   int vowel_count = 0;
