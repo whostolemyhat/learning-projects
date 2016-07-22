@@ -26,12 +26,12 @@ int main() {
   for(auto c : input) {
     it = std::find(vowels.begin(), vowels.end(), c);
 
-    // not in vector = returns index of end
-    if(it != vowels.end()) {
-      vowel_count++;
-    } else {
-      // ignore non-chars
-      if (isalpha(c)) {
+    if (isalpha(c)) {
+      // not in vector = returns index of end
+      if(it != vowels.end()) {
+        vowel_count++;
+      } else {
+        // ignore non-chars
         consonant_count++;
       }
     }
