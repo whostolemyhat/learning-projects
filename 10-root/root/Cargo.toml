@@ -1,0 +1,6 @@
+[package]
+name = "root"
+version = "0.1.0"
+authors = ["James Tease <james.tease@rotork.com>"]
+
+[dependencies]
