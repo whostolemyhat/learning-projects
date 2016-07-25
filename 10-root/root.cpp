@@ -1,7 +1,8 @@
 #include <iostream>
+#include <cmath>
 
 float fifthRoot(float x) {
-  return x.pow(1/5);
+  return pow(x, 1/5);
 }
 
 int main() {
