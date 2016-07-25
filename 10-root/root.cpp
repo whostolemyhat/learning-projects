@@ -14,7 +14,8 @@ int main() {
     }
   }
 
-  std::cout << sum << fifthRoot((float) sum) << std::endl;
+  std::cout << "5th root of " << sum << "is: "
+    << fifthRoot((float) sum) << std::endl;
 
   return 0;
 }
