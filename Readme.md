@@ -39,8 +39,8 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 7. [x] Guessing game. Write a game that asks the user to guess a number between 1 and a 100. If you guessed correctly, it will say you win. If you're too high or too low it will also let you know.
 8. [x] Create a programme which generates Fibonacci series till a number 'n' where 'n' is entered by the user. For eg. if the user enters 10 then the output would be: `1 1 2 3 5 8`
 9. [x] Given a string, determine how many of the characters are vowels and how many are consonants. Terminate the string when the input character encountered is non-alphabetic.
-10. [ ] Find the Fifth root of the sum of the squares of the first 100 ODD numbers only.
-- [ ] List all possible combinations of letters in a 4-letter word. Eg 'TEST' can be unscrambled as TEST,TETS,TSET,TSTE,TTSE,TTES,etc.
+10. [x] Find the Fifth root of the sum of the squares of the first 100 ODD numbers only.
+11. [ ] List all possible combinations of letters in a 4-letter word. Eg 'TEST' can be unscrambled as TEST,TETS,TSET,TSTE,TTSE,TTES,etc.
 - [ ] Make a programme that allows the user to input either the radius, diameter, or area of the circle. The programme should then calculate the other 2 based on the input.
 - [ ] Read a line of text and write it out backwards using a recursive function.
 - [ ] Write a programme to swap the contents of 3 variables without using the temporary (or extra) variables.
