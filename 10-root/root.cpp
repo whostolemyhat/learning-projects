@@ -2,7 +2,7 @@
 #include <cmath>
 
 float fifthRoot(float x) {
-  return pow(x, 1/5);
+  return pow(x, 1.0/5.0);
 }
 
 int main() {
@@ -14,7 +14,7 @@ int main() {
     }
   }
 
-  std::cout << fifthRoot((float) sum) << std::endl;
+  std::cout << sum << fifthRoot((float) sum) << std::endl;
 
   return 0;
 }
