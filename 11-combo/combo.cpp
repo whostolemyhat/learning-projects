@@ -2,19 +2,36 @@
 #include <string>
 #include <vector>
 
-std::vector<std::string> permutations(std::string word) {
+using string;
+
+std::vector<string> permutations(string word) {
   size_t len = word.length();
 
   if(len <= 1) {
-    return std::vector<std::string> { word };
+    return std::vector<string> { word };
   }
 
-  return std::vector<std::string> { word };
+  string trimmed = word.substr(1, len);
+
+  std::vector<string> perms = permutations(trimmed);
+  string current_char = word.substr(0, 1);
+  std::vector<string> result;
+
+  for(string perm : perms) {
+    for(int i = 0; i < perms.length() + 1; i++) {
+      string front = perm.substr(0, i);
+      string rest = perm.substr(i, perm.length());
+
+      result.push_back(front + current_char + rest);
+    }
+  }
+
+  return result;
 
 }
 
 int main() {
-  for(std::string result : permutations("TEST")) {
+  for(string result : permutations("TEST")) {
     std::cout << result;
   }
 
