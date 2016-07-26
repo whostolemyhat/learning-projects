@@ -5,7 +5,7 @@
 std::vector<std::string> permutations(std::string word) {
   size_t len = word.length();
 
-  if(length <= 1) {
+  if(len <= 1) {
     return std::vector<std::string> { word };
   }
 
@@ -14,7 +14,9 @@ std::vector<std::string> permutations(std::string word) {
 }
 
 int main() {
-  std::cout << permutations("TEST") << std::endl;
+  for(std::string result : permutations("TEST")) {
+    std::cout << result;
+  }
 
   return 0;
 }
