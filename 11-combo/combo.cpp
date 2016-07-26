@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-using string;
+using std::string;
 
 std::vector<string> permutations(string word) {
   size_t len = word.length();
