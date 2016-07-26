@@ -18,7 +18,7 @@ std::vector<string> permutations(string word) {
   std::vector<string> result;
 
   for(string perm : perms) {
-    for(int i = 0; i < perms.size() + 1; i++) {
+    for(int i = 0; i < perms.size(); i++) {
       string front = perm.substr(0, i);
       string rest = perm.substr(i, perm.size());
 
