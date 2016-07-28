@@ -21,13 +21,11 @@ std::vector<string> permutations(string word) {
     for(int i = 0; i < (int)perms.size() + 1; i++) {
       std::cout << i << std::endl;
 
-      if(i < (int)perms.size()) {
-        string front = perm.substr(0, i);
-        string rest = perm.substr(i, perm.size());
-        result.push_back(front + current_char + rest);
+      string front = perm.substr(0, i - 1);
+      string rest = perm.substr(i, perm.size());
 
-      }
-
+      std::cout << front << " " << rest << std::endl;
+      result.push_back(front + current_char + rest);
     }
   }
 
