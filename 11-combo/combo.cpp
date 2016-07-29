@@ -18,9 +18,10 @@ std::vector<string> permutations(string word) {
   std::vector<string> result;
 
   for(string perm : perms) {
-    for(int i = 0; i < (int)perms.size() + 1; i++) {
-      std::cout << i << std::endl;
+    for(int i = 0; i < (int)perm.size() + 1; i++) {
+      std::cout << perm << " " << i << " " << perm.size() << std::endl;
 
+      // substr(x, y) : start at pos x, take y chars. y NOT position!
       string front = perm.substr(0, i - 1);
       string rest = perm.substr(i, perm.size());
 
@@ -34,7 +35,7 @@ std::vector<string> permutations(string word) {
 }
 
 int main() {
-  for(string result : permutations("TEST")) {
+  for(string result : permutations("bar")) {
     std::cout << result;
   }
 

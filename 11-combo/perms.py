@@ -11,6 +11,9 @@ def permutations(word):
     for perm in perms:
         #insert the character into every possible location
         for i in range(len(perm)+1):
+            print(perm, i, len(perm)+1)
+            print('{} {} {}'.format(perm[:i], char, perm[i:]))
+
             result.append(perm[:i] + char + perm[i:])
     return result
 
