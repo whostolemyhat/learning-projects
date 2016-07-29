@@ -40,7 +40,7 @@ int main() {
 
   std::cout << "\nTotal permutations: " << results.size() << std::endl;
 
-  std::sort(results.begin(), results.end());
+  // std::sort(results.begin(), results.end());
   auto distinct = std::unique(results.begin(), results.end());
 
   for(string result : distinct) {
