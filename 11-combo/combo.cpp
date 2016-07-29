@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm> // sort, unique
 
 using std::string;
 
@@ -39,9 +40,9 @@ int main() {
 
   std::cout << "\nTotal permutations: " << results.size() << std::endl;
 
-  auto distinct = unique(sort(results.begin(), results.end()));
+  auto distinct = std::unique(std::sort(results.begin(), results.end()));
 
-  for(string result : unique) {
+  for(string result : distinct) {
     std::cout << result << ", ";
   }
 
