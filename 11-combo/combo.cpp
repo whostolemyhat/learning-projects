@@ -22,7 +22,7 @@ std::vector<string> permutations(string word) {
       std::cout << perm << " " << i << " " << perm.size() << std::endl;
 
       // substr(x, y) : start at pos x, take y chars. y NOT position!
-      string front = perm.substr(0, i - 1);
+      string front = perm.substr(0, i);
       string rest = perm.substr(i, perm.size());
 
       std::cout << front << " " << rest << std::endl;
