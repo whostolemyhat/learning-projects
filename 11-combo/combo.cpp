@@ -43,9 +43,9 @@ int main() {
   // std::sort(results.begin(), results.end());
   auto distinct = std::unique(results.begin(), results.end());
 
-  for(auto result : distinct) {
-    std::cout << result << ", ";
-  }
+  // for(auto result : distinct) {
+  //   std::cout << result << ", ";
+  // }
 
   return 0;
 }
