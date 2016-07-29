@@ -43,7 +43,7 @@ int main() {
   // std::sort(results.begin(), results.end());
   auto distinct = std::unique(results.begin(), results.end());
 
-  for(string result : distinct) {
+  for(auto result : distinct) {
     std::cout << result << ", ";
   }
 
