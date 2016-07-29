@@ -40,12 +40,5 @@ int main() {
 
   std::cout << "\nTotal permutations: " << results.size() << std::endl;
 
-  // std::sort(results.begin(), results.end());
-  auto distinct = std::unique(results.begin(), results.end());
-
-  // for(auto result : distinct) {
-  //   std::cout << result << ", ";
-  // }
-
   return 0;
 }
