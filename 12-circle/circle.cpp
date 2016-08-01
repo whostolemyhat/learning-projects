@@ -25,7 +25,7 @@ int main() {
     return 1;
   }
 
-  Circle circle();
+  Circle circle;
   circle.print();
 
   return 0;
