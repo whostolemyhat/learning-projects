@@ -11,7 +11,7 @@ public:
   Circle(float area = 0, float radius = 0, float diameter = 0) :
     area(area), radius(radius), diameter(diameter) {}
 
-    static Circle Circle::from_radius(float radius) {
+    static Circle from_radius(float radius) {
       return Circle(M_PI * (radius * radius), radius, radius * 2);
     }
 
