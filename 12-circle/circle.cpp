@@ -21,7 +21,7 @@ public:
     return Circle(M_PI * (radius * radius), radius, diameter);
   }
 
-  state Circle from_area(float area) {
+  static Circle from_area(float area) {
     float diameter = (area / M_PI).sqrt();
 
     return Circle(area, diameter / 2.0, diameter);
@@ -50,6 +50,12 @@ int main() {
 
   Circle c2 = Circle::from_radius(12);
   c2.print();
+
+  Circle c3 = Circle::from_diameter(12);
+  c3.print();
+
+  Circle c4 = Circle::from_area(12);
+  c4.print();
 
   return 0;
 }
