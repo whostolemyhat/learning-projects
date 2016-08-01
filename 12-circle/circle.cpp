@@ -9,7 +9,7 @@ private:
 
 public:
   Circle(float area = 0, float radius = 0, float diameter = 0) :
-    area(area), radius(radius), diameter(diameter) {}
+    area{area}, radius{radius}, diameter{diameter} {}
 
   static Circle from_radius(float radius) {
     return Circle(M_PI * (radius * radius), radius, radius * 2);
@@ -34,7 +34,6 @@ public:
   }
 };
 
-
 int main() {
   std::cout << "Pick an option: " << std::endl;
   std::cout << "1. Area" << std::endl;
@@ -48,7 +47,6 @@ int main() {
     std::cout << "Enter a number!" << std::endl;
     return 1;
   }
-
 
   std::cout << "Enter size: ";
   int size;
