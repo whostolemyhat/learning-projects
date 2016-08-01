@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 
 class Circle {
 private:
@@ -11,9 +12,15 @@ public:
     area(area), radius(radius), diameter(diameter) {}
 
   void print() {
-    std::cout << "Circle(area:" << area << ", radius: " << radius << ", diameter: " << diameter << ")" << std::endl;
+    std::cout << "Circle(area: " << area
+      << ", radius: " << radius
+      << ", diameter: " << diameter << ")" << std::endl;
   }
 };
+
+Circle Circle::from_radius(float radius) {
+  return Circle(M_PI * (radius * radius), radius, radius * 2);
+}
 
 int main() {
   std::cout << "Enter size: ";
@@ -27,6 +34,9 @@ int main() {
 
   Circle circle(size);
   circle.print();
+
+  Circle c2 = Circle::from_radius(12);
+  c2.print();
 
   return 0;
 }
