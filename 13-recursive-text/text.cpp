@@ -5,7 +5,7 @@ using std::string;
 
 string reverse(string output, string input, int n) {
   if(n == 0) {
-    return output + input.at(0)
+    return output + input.at(0);
   }
 
   output += input.at(n);
@@ -22,7 +22,7 @@ int main() {
     std::cout << c << std::endl;
   }
 
-  reverse("", input, input.len());
+  reverse("", input, input.length());
 
   return 0;
 }
