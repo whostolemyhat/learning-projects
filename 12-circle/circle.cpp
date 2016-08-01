@@ -1,5 +1,5 @@
 #include <iostream>
-#include <math.h> // M_PI
+#include <math.h> // M_PI, sqrt
 
 class Circle {
 private:
@@ -22,7 +22,7 @@ public:
   }
 
   static Circle from_area(float area) {
-    float diameter = (area / M_PI).sqrt();
+    float diameter = sqrt(area / M_PI);
 
     return Circle(area, diameter / 2.0, diameter);
   }
