@@ -36,6 +36,20 @@ public:
 
 
 int main() {
+  std::cout << "Pick an option: "; << std::endl;
+  std::cout << "1. Area" << std::endl;
+  std::cout << "2. Radius" << std::endl;
+  std::cout << "3. Diameter" << std::endl;
+
+  int choice;
+  std::cin >> choice;
+
+  if(!std::cin) {
+    std::cout << "Enter a number!" << std::endl;
+    return 1;
+  }
+
+
   std::cout << "Enter size: ";
   int size;
   std::cin >> size;
@@ -45,17 +59,33 @@ int main() {
     return 1;
   }
 
-  Circle circle(size);
+  Circle circle;
+  switch(choice) {
+    case 1:
+      circle = Circle::from_area(size);
+      break;
+    case 2:
+      circle = Circle::from_radius(size);
+      break;
+    case 3:
+      circle = Circle::from_diameter(size);
+      break;
+    default:
+      std::cout << "Pick an option from the list!" << std::endl;
+      return 1;
+  }
+
+  // Circle circle(size);
   circle.print();
 
-  Circle c2 = Circle::from_radius(12);
-  c2.print();
+  // Circle c2 = Circle::from_radius(12);
+  // c2.print();
 
-  Circle c3 = Circle::from_diameter(12);
-  c3.print();
+  // Circle c3 = Circle::from_diameter(12);
+  // c3.print();
 
-  Circle c4 = Circle::from_area(12);
-  c4.print();
+  // Circle c4 = Circle::from_area(12);
+  // c4.print();
 
   return 0;
 }
