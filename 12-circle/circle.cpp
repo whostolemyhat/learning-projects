@@ -36,7 +36,7 @@ public:
 
 
 int main() {
-  std::cout << "Pick an option: "; << std::endl;
+  std::cout << "Pick an option: " << std::endl;
   std::cout << "1. Area" << std::endl;
   std::cout << "2. Radius" << std::endl;
   std::cout << "3. Diameter" << std::endl;
@@ -75,17 +75,7 @@ int main() {
       return 1;
   }
 
-  // Circle circle(size);
   circle.print();
-
-  // Circle c2 = Circle::from_radius(12);
-  // c2.print();
-
-  // Circle c3 = Circle::from_diameter(12);
-  // c3.print();
-
-  // Circle c4 = Circle::from_area(12);
-  // c4.print();
 
   return 0;
 }
