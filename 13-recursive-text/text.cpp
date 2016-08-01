@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+using std::string;
+
 string reverse(string output, string input, int n) {
   if(n == 0) {
     return output + input.at(0)
@@ -16,8 +18,8 @@ int main() {
   string input;
   std::cin >> input;
 
-  for(auto ch : input) {
-    std::cout << ch << std::endl;
+  for(char c : input) {
+    std::cout << c << std::endl;
   }
 
   reverse("", input, input.len());
