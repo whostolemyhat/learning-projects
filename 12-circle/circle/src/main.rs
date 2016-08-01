@@ -3,9 +3,8 @@
 
 use std::io;
 
-
 #[derive(Debug)]
-struct Circle {
+pub struct Circle {
   radius: f64,
   diameter: f64,
   area: f64
@@ -34,8 +33,11 @@ impl Circle {
   }
 
   fn new_with_area(area: f64) -> Circle {
-    let diameter = diameter_from_area(area);
-    let radius = radius(diameter);
+    // Self:: or Circle::
+    // Self = static type
+    // Circle = explicit type
+    let diameter = Self::diameter_from_area(area);
+    let radius = Self::radius(diameter);
 
     Circle {
       radius: radius,
@@ -48,17 +50,17 @@ impl Circle {
     Circle {
       radius: radius,
       diameter: 2.0 * radius,
-      area: area(radius)
+      area: Self::area(radius)
     }
   }
 
   fn new_with_diameter(diameter: f64) -> Circle {
-    let radius = radius(diameter);
+    let radius = Self::radius(diameter);
 
     Circle {
       diameter: diameter,
       radius: radius,
-      area: area(radius)
+      area: Self::area(radius)
     }
   }
 }
@@ -66,7 +68,11 @@ impl Circle {
 fn main() {
   let mut input = String::new();
 
-  println!("Enter radius:");
+  println!("Pick an option:");
+  println!("1. Area");
+  println!("2. Radius");
+  println!("3. Diameter");
+
   io::stdin()
     .read_line(&mut input)
     .expect("Failed to read input");
@@ -76,6 +82,29 @@ fn main() {
     Err(_) => panic!("That's no number!")
   };
 
-  let circle = Circle::new_with_area(option);
-  println!("{:?}", circle);
+  match option {
+    1f64 => println!("Enter area:"),
+    2f64 => println!("Enter radius:"),
+    3f64 => println!("Enter diameter:"),
+    _ => panic!("Pick one of the options.")
+  };
+
+  let mut size_string = String::new();
+  io::stdin()
+    .read_line(&mut size_string)
+    .expect("Failed to read input");
+
+  match size_string.trim().parse() {
+    Ok(num) => {
+      let circle = match option {
+        1f64 => Circle::new_with_area(num),
+        2f64 => Circle::new_with_radius(num),
+        3f64 => Circle::new_with_diameter(num),
+        _ => Circle::new(0.0, 0.0, 0.0)
+      };
+
+      println!("{:?}", circle);
+    }
+    Err(_) => panic!("That's no number")
+  };
 }
