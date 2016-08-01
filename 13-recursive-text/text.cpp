@@ -22,7 +22,7 @@ int main() {
     std::cout << c << std::endl;
   }
 
-  reverse("", input, input.length());
+  reverse("", input, input.length() - 1);
 
   return 0;
 }
