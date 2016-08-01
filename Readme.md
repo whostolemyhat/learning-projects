@@ -45,7 +45,6 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 - [ ] Read a line of text and write it out backwards using a recursive function.
 - [ ] Write a programme to swap the contents of 3 variables without using the temporary (or extra) variables.
 - [ ] Write a programme which reverses the numerals in an integer, that is 326 becomes 623, etc.
-- [ ] The programme will tell the user each time whether he guessed high or low. The user wins the game when the number guessed is same as randomly generated number.
 - [ ] Write a programme to simulate a simple calculator. It should accept two number from the user along with the required operation to be performed. Addition, Subtraction, Division and Multiplication are the basic operations that should be implemented. Feel free to implement the other operations
 - [ ] Determine how much money is in a piggy bank that contains several 50 pence coins, 25 pence coins, 20 pence coins, 10 pence coins and 5 pence coins. Use the following values to test your programme: five 50 pence coins, three 25 pence coins, two 20 pence coins, one 10 pence coin and fifteen 5 pence coins.
 - [ ] Create a simple palindrome checker programme. The programme should allow the user to enter a string and check whether the given string is a palindrome or not. Only digits and alphabets should be considered while checking for palindromes - any other characters are to be ignored.
@@ -53,21 +52,22 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 
 ## Intermediate
 
+- [ ] Simple file encryption (using something simple like ROT13).
 - [ ] Write a programme which will print all the pairs of prime numbers whose sum equals the number entered by the user.
-- [ ] Develop a animal classification programme base on the animal kingdom. (for practice the use of inhabitant classes).
-- [ ] Write a quiz programme, which retrieve question, and answer from a file. Then allow the user to take the quiz/count point and return score.
+- [ ] Develop a animal classification programme base on the animal kingdom. (for practicing the use of inhabitant classes) ??
+- [ ] Write a quiz which retrieves a question and answer from a file. Allow the user to take the quiz, count points total and show score.
 - [ ] Write a programme that accepts XHTML, parses and removes the tags, then prints out the remaining text.
 - [ ] Write a programme which performs addition, subtraction, multiplication of matrices. The dimensions of both the matrices would be specified by the user (dynamic memory allocation required). Use of structure or a class to define the matrix would be a good idea.
 - [ ] Write a programme which will perform the job of moving the file from one location to another. The source and destination path will be entered by the user. Perform the required error checking and handle the exceptions accordingly.
 - [ ] Create a sophisticated linked list class. You should be able to insert and delete nodes anywhere in the list, and the nodes should have pointers to nodes both in front and behind them.
-- [ ] Create a programme that implements a database in C++. The fields are hard-coded, and the data is saved in a binary file. Although this isn't really flexibility, you aren't relying on any external libraries or functions.
+- [ ] Create a programme that implements a database. The fields are hard-coded, and the data is saved in a binary file. Although this isn't really flexibility, you aren't relying on any external libraries or functions.
+- [ ] Create a command-line todo list. Users should be able to add, complete and delete items. Bonus: use a database (eg SQLite) to persist todo items between programme runs.
 
 ## Expert
 
 - [ ] Implement your own `strstr`.
 - [ ] Write a programme which acted like a personal planner. A user can input an event, note things to-do on a certain date.
 - [ ] Noughts and crosses game.
-- [ ] Simple file encryption (using something simple like ROT13).
 - [ ] Write a phone/address book programme, with data save in binary files. The users should be able to add/delete/change the data.
 - [ ] Write a simple payroll programme, that would include pay rates, and hours work for employees.
 - [ ] Create a few classes that model playing cards. Then use this framework to create your favorite card game. Blackjack etc
@@ -84,7 +84,7 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 - [ ] Write a programme to plot a graph of given equation of form y=f(x) and a range for x as command line arguments. (e.g. my_graph_plotter -eq="y=x*x" -xmin=-10, -xmax=10) (PS: more to do with equation solving than graphics)
 - [ ] Write the classic brick break-out game (Arkanoid/Breakout)
 
-- [make a pokedex](http://codereview.stackexchange.com/questions/135293/basic-pokedex-in-c) - use a database, enums for types/gender etc
+- [ ] [make a pokedex](http://codereview.stackexchange.com/questions/135293/basic-pokedex-in-c) - use a database, enums for types/gender etc
 
 Good resources for Rust:
 - https://github.com/cis198-2016s
