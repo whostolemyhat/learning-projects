@@ -7,20 +7,20 @@ private:
   float diameter;
 
 public:
-  Circle(float area = 0, float radius = 0, flaot diameter = 0) :
-    area(area), radius(radius), diameter(diameter);
+  Circle(float area = 0, float radius = 0, float diameter = 0) :
+    area(area), radius(radius), diameter(diameter) {}
 
   void print() {
     std::cout << "Circle(area:" << area << ", radius: " << radius << ", diameter: " << diameter << std::endl;
   }
-}
+};
 
 int main() {
   std::cout << "Enter size: ";
   int size;
-  cin >> size;
+  std::cin >> size;
 
-  if(!cin) {
+  if(!std::cin) {
     std::cout << "Enter a number!" << std::endl;
     return 1;
   }
