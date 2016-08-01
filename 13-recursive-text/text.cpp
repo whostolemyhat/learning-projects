@@ -18,11 +18,11 @@ int main() {
   string input;
   std::cin >> input;
 
-  for(char c : input) {
-    std::cout << c << std::endl;
-  }
+  // for(char c : input) {
+    // std::cout << c << std::endl;
+  // }
 
-  reverse("", input, input.length() - 1);
+  std::cout << reverse("", input, input.length() - 1) << std::endl;
 
   return 0;
 }
