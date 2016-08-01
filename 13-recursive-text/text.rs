@@ -1,13 +1,13 @@
 use std::io;
 
 fn reverse<'a>(output: &'a mut String, input: &String, n: i32) -> &'a mut String {
-  println!("{:?} {:?} {:?}", n, input.chars(), input.chars().nth(0));
   if n == 0 {
     output.push(input.chars().nth(0).unwrap());
     return output;
   }
 
-  output.push(input.chars().nth(n as usize).unwrap());
+  println!("{:?} {:?} {:?}", n, input.chars(), input.chars().nth(n - 1));
+  output.push(input.chars().nth((n - 1) as usize).unwrap());
   reverse(output, input, n - 1)
 }
 
