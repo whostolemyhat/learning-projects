@@ -40,8 +40,8 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 8. [x] Create a programme which generates Fibonacci series til a number 'n', where 'n' is entered by the user. Eg if the user enters 10 then the output would be: `1 1 2 3 5 8`
 9. [x] Given a string, determine how many of the characters are vowels and how many are consonants. Terminate the string when the input character encountered is non-alphabetic.
 10. [x] Find the Fifth root of the sum of the squares of the first 100 ODD numbers only.
-11. [ ] List all possible combinations of letters in a 4-letter word. Eg 'TEST' can be unscrambled as TEST, TETS, TSET, TSTE, TTSE, TTES, etc.
-- [ ] Make a programme that allows the user to input either the radius, diameter, or area of the circle. The programme should then calculate the other 2 based on the input.
+11. [x] List all possible combinations of letters in a 4-letter word. Eg 'TEST' can be unscrambled as TEST, TETS, TSET, TSTE, TTSE, TTES, etc.
+12. [ ] Make a programme that allows the user to input either the radius, diameter, or area of the circle. The programme should then calculate the other 2 based on the input.
 - [ ] Read a line of text and write it out backwards using a recursive function.
 - [ ] Write a programme to swap the contents of 3 variables without using the temporary (or extra) variables.
 - [ ] Write a programme which reverses the numerals in an integer, that is 326 becomes 623, etc.
@@ -90,3 +90,4 @@ Good resources for Rust:
 - https://github.com/cis198-2016s
 - http://fredrik.anderzon.se/2016/05/10/rust-for-node-developers-part-1-introduction/
 - http://www.arewewebyet.org/#getting-started
+- http://cglab.ca/~abeinges/blah/too-many-lists/book/
