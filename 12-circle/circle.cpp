@@ -11,7 +11,7 @@ public:
     area(area), radius(radius), diameter(diameter) {}
 
   void print() {
-    std::cout << "Circle(area:" << area << ", radius: " << radius << ", diameter: " << diameter << std::endl;
+    std::cout << "Circle(area:" << area << ", radius: " << radius << ", diameter: " << diameter << ")" << std::endl;
   }
 };
 
@@ -25,7 +25,7 @@ int main() {
     return 1;
   }
 
-  Circle circle;
+  Circle circle(size);
   circle.print();
 
   return 0;
