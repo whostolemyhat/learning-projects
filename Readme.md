@@ -41,8 +41,8 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 9. [x] Given a string, determine how many of the characters are vowels and how many are consonants. Terminate the string when the input character encountered is non-alphabetic.
 10. [x] Find the Fifth root of the sum of the squares of the first 100 ODD numbers only.
 11. [x] List all possible combinations of letters in a 4-letter word. Eg 'TEST' can be unscrambled as TEST, TETS, TSET, TSTE, TTSE, TTES, etc.
-12. [ ] Make a programme that allows the user to input either the radius, diameter, or area of the circle. The programme should then calculate the other 2 based on the input.
-- [ ] Read a line of text and write it out backwards using a recursive function.
+12. [x] Make a programme that allows the user to input either the radius, diameter, or area of the circle. The programme should then calculate the other 2 based on the input.
+13. [ ] Read a line of text and write it out backwards using a recursive function.
 - [ ] Write a programme to swap the contents of 3 variables without using the temporary (or extra) variables.
 - [ ] Write a programme which reverses the numerals in an integer, that is 326 becomes 623, etc.
 - [ ] Write a programme to simulate a simple calculator. It should accept two number from the user along with the required operation to be performed. Addition, Subtraction, Division and Multiplication are the basic operations that should be implemented. Feel free to implement the other operations
