@@ -18,7 +18,7 @@ int main() {
   swap(a, b);
   swap(b, c);
 
-  std::cout << a << " " << b << std::endl;
+  std::cout << a << " " << b << " " << c << std::endl;
 
   return 0;
 }
