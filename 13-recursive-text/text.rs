@@ -1,12 +1,15 @@
 use std::io;
 
+// lifetimes! we want output to live long enough to be printed
+// since we're passing it in as a reference
+// so the return String needs to live that long as well
+// which means we also need to annotate reverse to show where the lifetime comes from
+
 fn reverse<'a>(output: &'a mut String, input: &String, n: i32) -> &'a mut String {
   if n == 0 {
-    output.push(input.chars().nth(0).unwrap());
     return output;
   }
 
-  println!("{:?} {:?} {:?}", n, input.chars(), input.chars().nth(n - 1));
   output.push(input.chars().nth((n - 1) as usize).unwrap());
   reverse(output, input, n - 1)
 }
