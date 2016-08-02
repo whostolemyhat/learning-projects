@@ -42,8 +42,8 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 10. [x] Find the Fifth root of the sum of the squares of the first 100 ODD numbers only.
 11. [x] List all possible combinations of letters in a 4-letter word. Eg 'TEST' can be unscrambled as TEST, TETS, TSET, TSTE, TTSE, TTES, etc.
 12. [x] Make a programme that allows the user to input either the radius, diameter, or area of the circle. The programme should then calculate the other 2 based on the input.
-13. [ ] Read a line of text and write it out backwards using a recursive function.
-- [ ] Write a programme to swap the contents of 3 variables without using the temporary (or extra) variables.
+13. [x] Read a line of text and write it out backwards using a recursive function.
+14. [ ] Write a programme to swap the contents of 3 variables without using the temporary (or extra) variables.
 - [ ] Write a programme which reverses the numerals in an integer, that is 326 becomes 623, etc.
 - [ ] Write a programme to simulate a simple calculator. It should accept two number from the user along with the required operation to be performed. Addition, Subtraction, Division and Multiplication are the basic operations that should be implemented. Feel free to implement the other operations
 - [ ] Determine how much money is in a piggy bank that contains several 50 pence coins, 25 pence coins, 20 pence coins, 10 pence coins and 5 pence coins. Use the following values to test your programme: five 50 pence coins, three 25 pence coins, two 20 pence coins, one 10 pence coin and fifteen 5 pence coins.
