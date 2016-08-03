@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 // float divide(int first, int second) {}
 // int mulitply(int first, int second) {}
 // int add(int first, int second) {}
