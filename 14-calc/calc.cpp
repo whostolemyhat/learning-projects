@@ -14,7 +14,7 @@ int main() {
   string input;
   std::cin >> input;
 
-  string operators[4] = ["+", "-", "*", "/"];
+  string operators[] = {"+", "-", "*", "/"};
 
   // search for operator in string
   for(auto op : operators) {
