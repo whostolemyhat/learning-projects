@@ -14,11 +14,11 @@ int main() {
   string input;
   std::cin >> input;
 
-  string[] operators = ["+", "-", "*", "/"];
+  string operators[4] = ["+", "-", "*", "/"];
 
   // search for operator in string
   for(auto op : operators) {
-    std::cout << op << ": " << s.find(op) << std::endl;
+    std::cout << op << ": " << input.find(op) << std::endl;
   }
 
   return 0;
