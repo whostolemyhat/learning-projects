@@ -1,21 +1,21 @@
-float divide(int first, int second) {}
-int mulitply(int first, int second) {}
-int add(int first, int second) {}
-int subtract(int first, int second) {}
+// float divide(int first, int second) {}
+// int mulitply(int first, int second) {}
+// int add(int first, int second) {}
+// int subtract(int first, int second) {}
 
-using namespace std;
+using std::string;
 
 int main() {
-  cout << "Enter a sum: ";
+  std::cout << "Enter a sum: ";
 
   string input;
-  cin >> input;
+  std::cin >> input;
 
   string[] operators = ["+", "-", "*", "/"];
 
   // search for operator in string
   for(auto op : operators) {
-    cout op << ": " << s.find(op) << endl;
+    std::cout << op << ": " << s.find(op) << std::endl;
   }
 
   return 0;
