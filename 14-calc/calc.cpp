@@ -29,6 +29,7 @@ int main() {
   map["+"] = &Calc::add;
   map["-"] = &Calc::subtract;
   map["*"] = &Calc::mulitply;
+  map["/"] = &Calc::divide;
 
   std::cout << "Enter a sum: ";
 
@@ -59,6 +60,8 @@ int main() {
 
       Calc calc;
       auto func = map.find(op);
+
+      // TODO: check func exists
 
       // can't use strings in switch
       // get string:function pair out of map
