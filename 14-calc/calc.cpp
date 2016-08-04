@@ -33,7 +33,7 @@ int main() {
   map["*"] = &Calc::mulitply;
   map["/"] = &Calc::divide;
 
-  std::cout << "Enter a sum, or 'q' to quit";
+  std::cout << "Enter a sum, or 'q' to quit" << std::endl;
 
   while (true) {
     string input;
@@ -60,8 +60,8 @@ int main() {
         int x = std::stoi(input.substr(start, end - start));
         int y = std::stoi(input.substr(end + op.length(), input.length()));
 
-        std::cout << x << std::endl;
-        std::cout << y << std::endl;
+        // std::cout << x << std::endl;
+        // std::cout << y << std::endl;
 
         Calc calc;
         auto func = map.find(op)->second;
