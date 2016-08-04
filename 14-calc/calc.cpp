@@ -47,15 +47,15 @@ int main() {
       // get first and second numbers
       auto start = 0;
       auto end = found;
-      auto first = input.substr(start, end - start);
-      auto second = input.substr(end + op.length(), input.length());
+      auto x = input.substr(start, end - start);
+      auto y = input.substr(end + op.length(), input.length());
 
-      std::cout << first << std::endl;
-      std::cout << second << std::endl;
+      std::cout << x << std::endl;
+      std::cout << y << std::endl;
 
       // get string:function pair out of map
       // call function
-      std::cout << map.find(op)->first << std::endl;
+      std::cout << map.find(op)->first << (map.find(op)->second)(x, y) << std::endl;
       // can't use strings in switch
       // switch(op) {
       //   case "+":
