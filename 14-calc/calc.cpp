@@ -6,19 +6,19 @@
 
 struct Calc {
   float divide(int first, int second) {
-    return first / second;
+    return (float)first / second;
   }
 
-  int mulitply(int first, int second) {
-    return first * second;
+  float mulitply(int first, int second) {
+    return (float)first * second;
   }
 
-  int add(int first, int second) {
-    return first + second;
+  float add(int first, int second) {
+    return (float)first + second;
   }
 
-  int subtract(int first, int second) {
-    return first - second;
+  float subtract(int first, int second) {
+    return (float)first - second;
   }
 };
 
@@ -28,8 +28,7 @@ using namespace std;
 int main() {
   auto addTuple = std::make_tuple(&Calc::add);
   // map <string, tuple>
-  // std::map<string, int(Calc::*)(int, int)> map;
-  std::map<string, std::tuple> map;
+  std::map<string, float(Calc::*)(int, int)> map;
   map["+"] = addTuple;
   // map["-"] = &Calc::subtract;
   // map["*"] = &Calc::mulitply;
