@@ -47,8 +47,8 @@ int main() {
       // get first and second numbers
       auto start = 0;
       auto end = found;
-      auto x = input.substr(start, end - start);
-      auto y = input.substr(end + op.length(), input.length());
+      int x = input.substr(start, end - start);
+      int y = input.substr(end + op.length(), input.length());
 
       std::cout << (int)x << std::endl;
       std::cout << (int)y << std::endl;
