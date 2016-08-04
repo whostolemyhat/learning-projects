@@ -34,9 +34,10 @@ int main() {
   int x;
   int y;
 
-  // string input;
-  stringstream data(cin);
-  // getline(cin, input);
+  string input;
+  getline(cin, input);
+  stringstream data(input);
+
   data >> x >> op >> y;
 
   std::cout << x << op << y << std::endl;
