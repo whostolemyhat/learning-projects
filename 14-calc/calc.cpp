@@ -3,10 +3,21 @@
 #include <sstream> // getline
 #include <map>
 
-float divide(int first, int second) {}
-int mulitply(int first, int second) {}
-int add(int first, int second) {}
-int subtract(int first, int second) {}
+float divide(int first, int second) {
+  return first / second;
+}
+
+int mulitply(int first, int second) {
+  return first * second;
+}
+
+int add(int first, int second) {
+  return first + second;
+}
+
+int subtract(int first, int second) {
+  return first - second;
+}
 
 // using std::string;
 using namespace std;
@@ -40,11 +51,11 @@ int main() {
       std::cout << second << std::endl;
 
       // can't use strings in switch
-      switch(op) {
-        case "+":
-          std::cout << first + second << std::endl;
-          break;
-      }
+      // switch(op) {
+      //   case "+":
+      //     std::cout << first + second << std::endl;
+      //     break;
+      // }
     }
   }
 
