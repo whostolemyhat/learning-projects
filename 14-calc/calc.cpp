@@ -26,13 +26,13 @@ struct Calc {
 using namespace std;
 
 int main() {
-  auto addTuple = std::make_tuple(&Calc::add);
+  // auto addTuple = std::make_tuple(&Calc::add);
   // map <string, tuple>
   std::map<string, float(Calc::*)(int, int)> map;
-  map["+"] = addTuple;
-  // map["-"] = &Calc::subtract;
-  // map["*"] = &Calc::mulitply;
-  // map["/"] = &Calc::divide;
+  map["+"] = &Calc::add;
+  map["-"] = &Calc::subtract;
+  map["*"] = &Calc::mulitply;
+  map["/"] = &Calc::divide;
 
   std::cout << "Enter a sum: ";
 
