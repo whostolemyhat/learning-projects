@@ -19,13 +19,13 @@ struct Calc {
   int subtract(int first, int second) {
     return first - second;
   }
-}
+};
 
 // using std::string;
 using namespace std;
 
 int main() {
-  std::map<string, int(*)()> map;
+  std::map<string, int(Calc::*)(int, int)> map;
   map["+"] = &Calc::add;
 
   std::cout << "Enter a sum: ";
