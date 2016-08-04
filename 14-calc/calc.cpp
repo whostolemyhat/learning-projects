@@ -33,13 +33,17 @@ int main() {
   map["*"] = &Calc::mulitply;
   map["/"] = &Calc::divide;
 
-  std::cout << "Enter a sum: ";
+  std::cout << "Enter a sum, or 'q' to quit";
 
   while (true) {
     string input;
     getline(cin, input);
 
     string operators[] = {"+", "-", "*", "/"};
+
+    if(input === 'q') {
+      break;
+    }
 
     // search for operator in string
     // if not in string, returns number greater than string length
@@ -67,7 +71,7 @@ int main() {
         // can't use strings in switch
         // get string:function pair out of map
         // call function
-        std::cout << map.find(op)->first << " = " << (calc.*(func))(x, y) << std::endl;
+        std::cout << (calc.*(func))(x, y) << std::endl;
       }
     }
   }
