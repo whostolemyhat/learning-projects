@@ -19,8 +19,14 @@ int main() {
   string operators[] = {"+", "-", "*", "/"};
 
   // search for operator in string
+  // if not in string, returns number greater than string length
+  // can also use std::string::npos
   for(auto op : operators) {
-    std::cout << op << ": " << input.find(op) << std::endl;
+    std::size_t found = input.find(op);
+
+    if(found != std::string::npos) {
+      std::cout << op << ": " << input.find(op) << std::endl;
+    }
   }
 
   return 0;
