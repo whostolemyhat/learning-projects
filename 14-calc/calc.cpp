@@ -60,9 +60,6 @@ int main() {
         int x = std::stoi(input.substr(start, end - start));
         int y = std::stoi(input.substr(end + op.length(), input.length()));
 
-        // std::cout << x << std::endl;
-        // std::cout << y << std::endl;
-
         Calc calc;
         auto func = map.find(op)->second;
 
