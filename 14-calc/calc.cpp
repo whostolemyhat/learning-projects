@@ -27,6 +27,8 @@ using namespace std;
 int main() {
   std::map<string, int(Calc::*)(int, int)> map;
   map["+"] = &Calc::add;
+  map["-"] = &Calc::subtract;
+  map["*"] = &Calc::mulitply;
 
   std::cout << "Enter a sum: ";
 
@@ -48,30 +50,20 @@ int main() {
       auto start = 0;
       auto end = found;
 
+      // stoi
       int x = std::stoi(input.substr(start, end - start));
       int y = std::stoi(input.substr(end + op.length(), input.length()));
-
-      // stringstream ss;
-      // ss << input.substr(start, end - start);
-      // ss >> x;
-
-      // ss << input.substr(end + op.length(), input.length());
-      // ss >> y;
 
       std::cout << x << std::endl;
       std::cout << y << std::endl;
 
       Calc calc;
       auto func = map.find(op);
+
+      // can't use strings in switch
       // get string:function pair out of map
       // call function
       std::cout << map.find(op)->first << " = " << (calc.*(func->second))(x, y) << std::endl;
-      // can't use strings in switch
-      // switch(op) {
-      //   case "+":
-      //     std::cout << first + second << std::endl;
-      //     break;
-      // }
     }
   }
 
