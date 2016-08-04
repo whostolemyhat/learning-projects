@@ -4,6 +4,7 @@
 #include <map>
 #include <tuple>
 
+// make sure all methods have same signatures so you can add to map
 struct Calc {
   float divide(int first, int second) {
     return (float)first / second;
@@ -22,12 +23,10 @@ struct Calc {
   }
 };
 
-// using std::string;
 using namespace std;
 
 int main() {
-  // auto addTuple = std::make_tuple(&Calc::add);
-  // map <string, tuple>
+  // map operator to function pointer
   std::map<string, float(Calc::*)(int, int)> map;
   map["+"] = &Calc::add;
   map["-"] = &Calc::subtract;
@@ -36,39 +35,40 @@ int main() {
 
   std::cout << "Enter a sum: ";
 
-  string input;
-  getline(cin, input);
+  while true {
+    string input;
+    getline(cin, input);
 
-  string operators[] = {"+", "-", "*", "/"};
+    string operators[] = {"+", "-", "*", "/"};
 
-  // search for operator in string
-  // if not in string, returns number greater than string length
-  // can also use std::string::npos
-  for(auto op : operators) {
-    std::size_t found = input.find(op);
+    // search for operator in string
+    // if not in string, returns number greater than string length
+    // can also use std::string::npos
+    for(auto op : operators) {
+      std::size_t found = input.find(op);
 
-    if(found != std::string::npos) {
-      // std::cout << op << ": " << input.find(op) << std::endl;
-      // split string at operator
-      // get first and second numbers
-      auto start = 0;
-      auto end = found;
+      if(found != std::string::npos) {
+        // split string at operator
+        // get first and second numbers
+        auto start = 0;
+        auto end = found;
 
-      int x = std::stoi(input.substr(start, end - start));
-      int y = std::stoi(input.substr(end + op.length(), input.length()));
+        int x = std::stoi(input.substr(start, end - start));
+        int y = std::stoi(input.substr(end + op.length(), input.length()));
 
-      std::cout << x << std::endl;
-      std::cout << y << std::endl;
+        std::cout << x << std::endl;
+        std::cout << y << std::endl;
 
-      Calc calc;
-      auto func = map.find(op)->second;
+        Calc calc;
+        auto func = map.find(op)->second;
 
-      // TODO: check func exists
+        // TODO: check func exists
 
-      // can't use strings in switch
-      // get string:function pair out of map
-      // call function
-      std::cout << map.find(op)->first << " = " << (calc.*(func))(x, y) << std::endl;
+        // can't use strings in switch
+        // get string:function pair out of map
+        // call function
+        std::cout << map.find(op)->first << " = " << (calc.*(func))(x, y) << std::endl;
+      }
     }
   }
 
