@@ -47,8 +47,16 @@ int main() {
       // get first and second numbers
       auto start = 0;
       auto end = found;
-      string x = input.substr(start, end - start);
-      string y = input.substr(end + op.length(), input.length());
+
+      int x;
+      int y;
+
+      stringstream ss;
+      ss << input.substr(start, end - start);
+      ss >> x;
+
+      ss << input.substr(end + op.length(), input.length());
+      ss >> y;
 
       std::cout << (int)x << std::endl;
       std::cout << (int)y << std::endl;
