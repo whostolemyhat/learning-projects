@@ -35,7 +35,7 @@ int main() {
 
   std::cout << "Enter a sum: ";
 
-  while true {
+  while (true) {
     string input;
     getline(cin, input);
 
