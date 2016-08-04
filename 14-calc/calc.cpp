@@ -2,6 +2,7 @@
 #include <string>
 #include <sstream> // getline
 #include <map>
+#include <tuple>
 
 struct Calc {
   float divide(int first, int second) {
@@ -25,11 +26,14 @@ struct Calc {
 using namespace std;
 
 int main() {
-  std::map<string, int(Calc::*)(int, int)> map;
-  map["+"] = &Calc::add;
-  map["-"] = &Calc::subtract;
-  map["*"] = &Calc::mulitply;
-  map["/"] = &Calc::divide;
+  auto addTuple = std::make_tuple(&Calc::add)
+  // map <string, tuple>
+  // std::map<string, int(Calc::*)(int, int)> map;
+  std::map<string, std::tuple> map;
+  map["+"] = addTuple;
+  // map["-"] = &Calc::subtract;
+  // map["*"] = &Calc::mulitply;
+  // map["/"] = &Calc::divide;
 
   std::cout << "Enter a sum: ";
 
@@ -59,14 +63,14 @@ int main() {
       std::cout << y << std::endl;
 
       Calc calc;
-      auto func = map.find(op);
+      auto func = map.find(op)->second;
 
       // TODO: check func exists
 
       // can't use strings in switch
       // get string:function pair out of map
       // call function
-      std::cout << map.find(op)->first << " = " << (calc.*(func->second))(x, y) << std::endl;
+      // std::cout << map.find(op)->first << " = " << (calc.*(func->second))(x, y) << std::endl;
     }
   }
 
