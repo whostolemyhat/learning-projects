@@ -40,9 +40,9 @@ int main() {
 
   data >> x >> op >> y;
 
-  std::cout << x << op << y << std::endl;
+  std::cout << x << op << std::endl;
 
-  string operators[] = {"+", "-", "*", "/"};
+  // string operators[] = {"+", "-", "*", "/"};
 
   // search for operator in string
   // if not in string, returns number greater than string length
