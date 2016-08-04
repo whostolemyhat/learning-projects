@@ -26,6 +26,11 @@ int main() {
 
     if(found != std::string::npos) {
       std::cout << op << ": " << input.find(op) << std::endl;
+      // split string at operator
+      // get first and second numbers
+      auto start = 0;
+      auto end = found;
+      std::cout << input.substr(start, end - start) << std::endl;
     }
   }
 
