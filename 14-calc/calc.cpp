@@ -25,13 +25,22 @@ int main() {
     std::size_t found = input.find(op);
 
     if(found != std::string::npos) {
-      std::cout << op << ": " << input.find(op) << std::endl;
+      // std::cout << op << ": " << input.find(op) << std::endl;
       // split string at operator
       // get first and second numbers
       auto start = 0;
       auto end = found;
-      std::cout << input.substr(start, end - start) << std::endl;
-      std::cout << input.substr(end + op.length(), input.length()) << std::endl;
+      auto first = input.substr(start, end - start);
+      auto second = input.substr(end + op.length(), input.length());
+
+      std::cout << first << std::endl;
+      std::cout << second << std::endl;
+
+      switch(op) {
+        case "+":
+          std::cout << first + second << std::endl;
+          break;
+      }
     }
   }
 
