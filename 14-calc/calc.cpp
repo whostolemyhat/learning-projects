@@ -41,7 +41,7 @@ int main() {
 
     string operators[] = {"+", "-", "*", "/"};
 
-    if(input === 'q') {
+    if(input == 'q') {
       break;
     }
 
