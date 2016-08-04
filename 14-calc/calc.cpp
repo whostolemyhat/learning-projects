@@ -55,7 +55,7 @@ int main() {
 
       // get string:function pair out of map
       // call function
-      std::cout << map.find(op)->first << (Calc::(map.find(op)->second)(x, y)) << std::endl;
+      std::cout << map.find(op)->first << (Calc::*(map.find(op)->second)(x, y)) << std::endl;
       // can't use strings in switch
       // switch(op) {
       //   case "+":
