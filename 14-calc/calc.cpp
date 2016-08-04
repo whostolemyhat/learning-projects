@@ -31,7 +31,7 @@ int main() {
       auto start = 0;
       auto end = found;
       std::cout << input.substr(start, end - start) << std::endl;
-      std::cout << input.substr(end + found.length(), input.length()) << std::endl;
+      std::cout << input.substr(end + op.length(), input.length()) << std::endl;
     }
   }
 
