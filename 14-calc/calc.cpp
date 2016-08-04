@@ -50,14 +50,14 @@ int main() {
       auto x = input.substr(start, end - start);
       auto y = input.substr(end + op.length(), input.length());
 
-      std::cout << x << std::endl;
-      std::cout << y << std::endl;
+      std::cout << (int)x << std::endl;
+      std::cout << (int)y << std::endl;
 
       Calc calc;
       auto func = map.find(op);
       // get string:function pair out of map
       // call function
-      std::cout << map.find(op)->first << (calc.*(func->second))(2, 4) << std::endl;
+      std::cout << map.find(op)->first << " = " << (calc.*(func->second))(2, 4) << std::endl;
       // can't use strings in switch
       // switch(op) {
       //   case "+":
