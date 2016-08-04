@@ -48,18 +48,18 @@ int main() {
       auto start = 0;
       auto end = found;
 
-      int x;
-      int y;
+      int x = std::stoi(input.substr(start, end - start));
+      int y = std::stoi(input.substr(end + op.length(), input.length()));
 
-      stringstream ss;
-      ss << input.substr(start, end - start);
-      ss >> x;
+      // stringstream ss;
+      // ss << input.substr(start, end - start);
+      // ss >> x;
 
-      ss << input.substr(end + op.length(), input.length());
-      ss >> y;
+      // ss << input.substr(end + op.length(), input.length());
+      // ss >> y;
 
-      std::cout << (int)x << std::endl;
-      std::cout << (int)y << std::endl;
+      std::cout << x << std::endl;
+      std::cout << y << std::endl;
 
       Calc calc;
       auto func = map.find(op);
