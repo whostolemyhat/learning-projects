@@ -54,7 +54,6 @@ int main() {
       auto start = 0;
       auto end = found;
 
-      // stoi
       int x = std::stoi(input.substr(start, end - start));
       int y = std::stoi(input.substr(end + op.length(), input.length()));
 
@@ -69,7 +68,7 @@ int main() {
       // can't use strings in switch
       // get string:function pair out of map
       // call function
-      std::cout << map.find(op)->first << " = " << (calc.*(func->second))(x, y) << std::endl;
+      std::cout << map.find(op)->first << " = " << (calc.*(func))(x, y) << std::endl;
     }
   }
 
