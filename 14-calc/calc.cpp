@@ -3,20 +3,22 @@
 #include <sstream> // getline
 #include <map>
 
-float divide(int first, int second) {
-  return first / second;
-}
+struct Calc {
+  float divide(int first, int second) {
+    return first / second;
+  }
 
-int mulitply(int first, int second) {
-  return first * second;
-}
+  int mulitply(int first, int second) {
+    return first * second;
+  }
 
-int add(int first, int second) {
-  return first + second;
-}
+  int add(int first, int second) {
+    return first + second;
+  }
 
-int subtract(int first, int second) {
-  return first - second;
+  int subtract(int first, int second) {
+    return first - second;
+  }
 }
 
 // using std::string;
@@ -24,6 +26,7 @@ using namespace std;
 
 int main() {
   std::map<string, int(*)()> map;
+  map["+"] = &Calc::add;
 
   std::cout << "Enter a sum: ";
 
