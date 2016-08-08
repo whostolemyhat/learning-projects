@@ -34,7 +34,7 @@ int main() {
   try {
     coins.push_back(Coin(get_input(), 200));
   } catch(const std::invalid_argument& e) {
-    std::cout << e << std::endl;
+    std::cout << e.what() << std::endl;
   }
 
   for(auto coin : coins) {
