@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <stdexcept>
 
 class Coin {
 private:
@@ -19,7 +20,7 @@ int get_input() {
   std::cin >> input;
 
   if(!std::cin) {
-    std::cout << "That's no number!" << std::endl;
+    throw std::invalid_argument("That's no number!");
   }
 
   return input;
@@ -30,7 +31,11 @@ int main() {
   std::cout << "Enter number of coins: " << std::endl;
 
   std::cout << "£2: ";
-  coins.push_back(Coin(get_input(), 200));
+  try {
+    coins.push_back(Coin(get_input(), 200));
+  } catch(const std::invalid_argument& e) {
+    std::cout << e << std::endl;
+  }
 
   for(auto coin : coins) {
     std::cout << coin.total() << std::endl;
