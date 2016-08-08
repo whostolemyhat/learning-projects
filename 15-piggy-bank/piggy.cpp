@@ -10,7 +10,7 @@ public:
   Coin(int amount = 0, int value = 0) : amount(amount), value(value) {}
 
   int total() {
-    return *this.amount * *this.value;
+    return amount * value;
   }
 };
 
