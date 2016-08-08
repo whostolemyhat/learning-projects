@@ -63,7 +63,7 @@ int main() {
     std::cout << e.what() << std::endl;
   }
 
-  std::cout << std::setprecision(2) << std::fixed;
+  std::cout << std::setprecision(2);
 
   std::cout << "£" << get_total(coins) / 100 << std::endl;
 
