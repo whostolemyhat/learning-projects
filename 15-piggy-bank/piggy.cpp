@@ -30,9 +30,24 @@ int main() {
   std::vector<Coin> coins;
   std::cout << "Enter number of coins: " << std::endl;
 
-  std::cout << "£2: ";
   try {
+    std::cout << "£2: ";
     coins.push_back(Coin(get_input(), 200));
+
+    std::cout << "£1: ";
+    coins.push_back(Coin(get_input(), 100));
+
+    std::cout << "50p: ";
+    coins.push_back(Coin(get_input(), 50));
+
+    std::cout << "20p: ";
+    coins.push_back(Coin(get_input(), 20));
+
+    std::cout << "10p: ";
+    coins.push_back(Coin(get_input(), 10));
+
+    std::cout << "5p: ";
+    coins.push_back(Coin(get_input(), 5));
   } catch(const std::invalid_argument& e) {
     std::cout << e.what() << std::endl;
   }
