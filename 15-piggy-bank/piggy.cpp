@@ -26,6 +26,16 @@ int get_input() {
   return input;
 }
 
+
+int get_total(std::vector<Coin> coins) {
+  int total = 0;
+  for(auto coin : coins) {
+    total += coin.total();
+  }
+
+  return total;
+}
+
 int main() {
   std::vector<Coin> coins;
   std::cout << "Enter number of coins: " << std::endl;
@@ -52,9 +62,9 @@ int main() {
     std::cout << e.what() << std::endl;
   }
 
-  for(auto coin : coins) {
-    std::cout << coin.total() << std::endl;
-  }
+  std::cout << std::setprecision(2) << std::fixed;
+
+  std::cout << "£" << get_total(coins) / 100 << std::endl;
 
   return 0;
 }

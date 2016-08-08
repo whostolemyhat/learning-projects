@@ -71,7 +71,6 @@ fn main() {
   print_line("5p: ");
   coins.push(Coin { value: 5, amount: get_input() });
 
-
   println!("\nTotal: {}", get_total(coins));
 }
 
