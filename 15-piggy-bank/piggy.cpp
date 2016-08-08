@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <stdexcept>
-#include <iomanip>
+#include <stdexcept> // exceptions
+#include <iomanip> // setprecision, fixed
 
 class Coin {
 private:
@@ -63,6 +63,8 @@ int main() {
     std::cout << e.what() << std::endl;
   }
 
+  // setprecision: max dp
+  // fixed: always show 2 dp
   std::cout << std::setprecision(2) << std::fixed
     << "£" << get_total(coins) / 100.0 << std::endl;
 
