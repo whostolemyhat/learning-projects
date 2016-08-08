@@ -29,5 +29,9 @@ int main() {
 
   coins.push_back(Coin(two_pounds, 200));
 
+  for(auto coin : coins) {
+    std::cout << coin.total() << std::endl;
+  }
+
   return 0;
 }
