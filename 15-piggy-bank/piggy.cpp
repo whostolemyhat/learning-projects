@@ -7,12 +7,12 @@ private:
   int value;
 
 public:
-  Coin(int amount = 0, int value = 0) : amount(amount), area(area) {}
+  Coin(int amount = 0, int value = 0) : amount(amount), value(value) {}
 
   int total() {
-    return this.amount * this.value;
+    return *this.amount * *this.value;
   }
-}
+};
 
 int main() {
   std::vector<Coin> coins;
