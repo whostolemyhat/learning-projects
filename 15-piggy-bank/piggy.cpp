@@ -14,20 +14,23 @@ public:
   }
 };
 
+int get_input() {
+  int input;
+  std::cin >> input;
+
+  if(!std::cin) {
+    std::cout << "That's no number!" << std::endl;
+  }
+
+  return input;
+}
+
 int main() {
   std::vector<Coin> coins;
   std::cout << "Enter number of coins: " << std::endl;
 
   std::cout << "£2: ";
-  int two_pounds;
-  std::cin >> two_pounds;
-
-  if(!std::cin) {
-    std::cout << "Enter a number!" << std::endl;
-    return 1;
-  }
-
-  coins.push_back(Coin(two_pounds, 200));
+  coins.push_back(Coin(get_input(), 200));
 
   for(auto coin : coins) {
     std::cout << coin.total() << std::endl;
