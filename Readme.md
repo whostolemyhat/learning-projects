@@ -85,6 +85,8 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 - [ ] [make a pokedex](http://codereview.stackexchange.com/questions/135293/basic-pokedex-in-c) - use a database, enums for types/gender etc
 
 Good resources for Rust:
+- https://github.com/kud1ing/awesome-rust
+- https://github.com/ctjhoa/rust-learning
 - https://github.com/cis198-2016s
 - http://fredrik.anderzon.se/2016/05/10/rust-for-node-developers-part-1-introduction/
 - http://www.arewewebyet.org/#getting-started
