@@ -8,7 +8,7 @@ bool isPalindrome(string text) {
 
   for(auto letter : text) {
     if(i <= (int) text.length() / 2) {
-      cout << letter << " " << i  << " " << text[i] << letter == text[i] << endl;
+      cout << letter << " " << i  << " " << text[i] << (letter == text[i]) << endl;
     }
 
     i--;
