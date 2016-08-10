@@ -1,17 +1,35 @@
 #include <iostream>
 #include <string>
+#include <ctype> // tolower
+#include <regex>
+#include <iterator> // back_inserter
 
 using namespace std;
 
 bool isPalindrome(string text) {
-  int i = (int) text.length() - 1;
+  // to lowercase
+  // remove non-alphanumeric
+  text = tolower(text);
+  string stripped;
+
+  regex re = ("[^a-zA-Z0-9]");
+  regex_replace(std::back_inserter(stripped), text.begin(), text.end(), re);
+
+  cout << stripped;
+  int length = (int) text.length();
+  int i = length - 1;
 
   for(auto letter : text) {
-    if(i >= (int) text.length() / 2) {
+    if(i >= length / 2) {
       cout << letter << " " << i  << " " << text[i] << (letter == text[i]) << endl;
-    }
+      if(letter != text[i]) {
+        return false;
+      }
 
-    i--;
+      i--;
+    } else {
+      break;
+    }
   }
 
   return true;
