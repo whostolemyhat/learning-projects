@@ -12,10 +12,9 @@ bool isPalindrome(string text) {
   // remove non-alphanumeric
   // text = std::tolower(text);
   std::transform(text.begin(), text.end(), text.begin(), ::tolower);
-  string stripped;
 
   regex re("[^a-zA-Z0-9]");
-  stripped = regex_replace(text, re, "");
+  string stripped = std::regex_replace(text, re, "");
 
   cout << stripped;
   int length = (int) text.length();
