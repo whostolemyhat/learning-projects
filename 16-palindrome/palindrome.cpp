@@ -15,7 +15,7 @@ bool isPalindrome(string text) {
   string stripped;
 
   regex re("[^a-zA-Z0-9]");
-  stripped = regex_replace(text, re);
+  stripped = regex_replace(text, re, "");
 
   cout << stripped;
   int length = (int) text.length();
