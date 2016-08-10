@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <ctype> // tolower
+#include <cctype> // tolower
 #include <regex>
 #include <iterator> // back_inserter
 
