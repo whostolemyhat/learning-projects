@@ -6,7 +6,7 @@ using namespace std;
 bool isPalindrome(string text) {
   int i = text.length() - 1;
 
-  for(auto text : text) {
+  for(auto letter : text) {
     if(i <= text.length() / 2) {
       cout << letter << " " << i  << " " << text[i] << letter == text[i] << endl;
     }
