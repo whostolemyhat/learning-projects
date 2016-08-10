@@ -4,9 +4,10 @@
 using namespace std;
 
 bool isPalindrome(string text) {
-  int i = letter.length() - 1;
-  for(auto letter : text) {
-    if(i <= letter.length() / 2) {
+  int i = text.length() - 1;
+
+  for(auto text : text) {
+    if(i <= text.length() / 2) {
       cout << letter << " " << i  << " " << text[i] << letter == text[i] << endl;
     }
 
