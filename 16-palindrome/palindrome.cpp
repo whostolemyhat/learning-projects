@@ -9,7 +9,7 @@ using namespace std;
 bool isPalindrome(string text) {
   // to lowercase
   // remove non-alphanumeric
-  text = std::tolower(text);
+  text = std::tolower(&text);
   string stripped;
 
   regex re = ("[^a-zA-Z0-9]");
