@@ -13,17 +13,20 @@ bool isPalindrome(string text) {
   // text = std::tolower(text);
   std::transform(text.begin(), text.end(), text.begin(), ::tolower);
 
+cout << "lower " << text << endl;
+
   regex re("[^a-zA-Z0-9]");
   string stripped = std::regex_replace(text, re, "");
 
-  cout << stripped;
-  int length = (int) text.length();
+  cout << "stripped " << stripped << endl;
+
+  int length = (int) stripped.length();
   int i = length - 1;
 
-  for(auto letter : text) {
+  for(auto letter : stripped) {
     if(i >= length / 2) {
-      cout << letter << " " << i  << " " << text[i] << (letter == text[i]) << endl;
-      if(letter != text[i]) {
+      cout << letter << " " << i  << " " << stripped[i] << (letter == stripped[i]) << endl;
+      if(letter != stripped[i]) {
         return false;
       }
 
