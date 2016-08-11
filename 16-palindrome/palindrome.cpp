@@ -42,7 +42,10 @@ cout << "lower " << text << endl;
 int main() {
   cout << "Enter some text: ";
   string input;
-  cin >> input;
+
+  // cin >> input only reads to first whitespace
+  // so any spaces in phrase will break it
+  getline(cin, input);
 
   if(!cin) {
     cout << "Failed to read input" << endl;
