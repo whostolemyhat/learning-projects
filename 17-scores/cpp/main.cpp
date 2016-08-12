@@ -17,7 +17,7 @@ int main() {
   StudentInfo record;
   string::size_type maxLength = 0;
 
-  while read(cin, record) {
+  while(read(cin, record)) {
     maxLength = max(maxLength, record.name.size());
     students.push_back(record);
   }
@@ -25,7 +25,7 @@ int main() {
   sort(students.begin(), students.end(), compare);
 
   for(vector<StudentInfo>::size_type i = 0; i != students.size(); i++) {
-    cout students[i].name << string(maxLength + 1 - students[i].name.size(), ' ');
+    cout << students[i].name << string(maxLength + 1 - students[i].name.size(), ' ');
 
     try {
       double final_grade = grade(students[i]);
