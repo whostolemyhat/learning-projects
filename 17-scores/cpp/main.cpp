@@ -17,6 +17,8 @@ int main() {
   StudentInfo record;
   string::size_type maxLength = 0;
 
+  cout << "Hello! Please enter name, midterm, final and all homework grades.\n
+  When you have finished, press Ctrl+D." << endl;
   while(read(cin, record)) {
     maxLength = max(maxLength, record.name.size());
     students.push_back(record);
