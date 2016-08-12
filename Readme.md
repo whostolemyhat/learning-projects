@@ -45,8 +45,8 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 13. [x] Read a line of text and write it out backwards using a recursive function.
 14. [x] Write a programme to simulate a simple calculator. It should accept two numbers from the user along with the required operation to be performed. Addition, subtraction, division and multiplication are the basic operations that should be implemented. Feel free to implement other operations. Bonus points for splitting the calculation functions into a separate module.
 15. [x] Determine how much money is in a piggy bank that contains several £2 coins, £1 coins, 50p coins, 20p coins, 10p coins and 5p coins. Use the following values to test your programme: one £2, three £1, five 50p  coins, two 20p coins, one 10p coin and fifteen 5p coins.
-16. [ ] Create a simple palindrome checker programme. The programme should allow the user to enter a string and check whether the given string is a palindrome or not. Only digits and alphabets should be considered while checking for palindromes - any other characters are to be ignored.
-- [ ] Write a programme that allows you to input students' scores and weights. The programme should then calculate a weighted average and score.
+16. [x] Create a simple palindrome checker programme. The programme should allow the user to enter a string and check whether the given string is a palindrome or not. Only digits and alphabets should be considered while checking for palindromes - any other characters are to be ignored.
+17. [ ] Write a programme that allows you to input students' scores and weights. The programme should then calculate a weighted average and score.
 
 ## Intermediate
 
