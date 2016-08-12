@@ -1,5 +1,7 @@
 #include "StudentInfo.h"
 
+#include <iostream>
+
 using std::istream;
 using std::vector;
 
@@ -10,6 +12,8 @@ bool compare(const StudentInfo& x, const StudentInfo& y) {
 istream& read(istream& in, StudentInfo& student) {
   in >> student.name >> student.midterm >> student.final;
   read_homework(in, student.homework);
+
+  std::cout << "StudentInfo created" << std::endl;
 
   return in;
 }
