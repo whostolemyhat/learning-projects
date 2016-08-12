@@ -1,5 +1,7 @@
-#include <stdexcept>
 #include <vector>
+#include "grade.h"
+#include "StudentInfo.h"
+#include "median.h"
 
 double grade(double midterm, double final, double homework) {
   return 0.2 * midterm +
@@ -7,7 +9,7 @@ double grade(double midterm, double final, double homework) {
     0.4 * homework;
 }
 
-double grade(double midterm, double final, const vector<double>& homework) {
+double grade(double midterm, double final, const std::vector<double>& homework) {
   if(homework.size() == 0) {
     throw domain_error("No homework!");
   }

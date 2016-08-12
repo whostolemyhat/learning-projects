@@ -7,8 +7,8 @@
 #include <iomanip>
 #include <iostream>
 #include <stdexcept>
-#include "StudentInfo"
-#include "grade"
+#include "StudentInfo.h"
+#include "grade.h"
 
 using namespace std;
 
