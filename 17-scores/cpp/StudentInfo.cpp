@@ -13,7 +13,7 @@ istream& read(istream& in, StudentInfo& student) {
   in >> student.name >> student.midterm >> student.final;
   read_homework(in, student.homework);
 
-  // std::cout << "StudentInfo created" << std::endl;
+  std::cout << "StudentInfo created" << std::endl;
 
   return in;
 }
