@@ -23,8 +23,6 @@ int main() {
   while(read(cin, record)) {
     maxLength = max(maxLength, record.name.size());
     students.push_back(record);
-
-    cout << "added " << record.name;
   }
 
   sort(students.begin(), students.end(), compare);
