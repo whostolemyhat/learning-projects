@@ -71,3 +71,11 @@ fn get_char_code(letter: char) -> char {
     _ => ' '
   }
 }
+
+#[test]
+fn it_converts() {
+  let input = "Hello World!".to_string();
+  let converted = "Uryyb Jbeyq!".to_string();
+  assert!(rot13(&input) == "Uryyb Jbeyq!");
+  assert!(rot13(&converted) == "Hello World!");
+}
