@@ -16,10 +16,11 @@ int main(int argc, char* argv[]) {
   std::string filename = argv[1];
 
   if(std::fstream is{filename}) {
-    auto size = is.tellg(); // wtf
+    // tellg - find 'get' position
+    auto size = is.tellg();
     std::string str(size, '\0');
     is.seekg(0);
-    is.read(&str[0], size);
+    is.read(&str, size);
     std::cout << str << "\n";
   } else {
     std::cerr << "Couldn't open " << filename << std::endl;
