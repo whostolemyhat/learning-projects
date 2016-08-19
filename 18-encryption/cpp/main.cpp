@@ -14,9 +14,9 @@ int main(int argc, char* argv[]) {
   }
 
   std::string filename = argv[0];
-  if(fstream is(filename)) {
+  if(std::fstream is(filename)) {
     auto size = is.tellg(); // wtf
-    std::string str(size, '');
+    std::string str(size, '\0');
     is.seekg(0);
     is.read(&str[0], size);
     std::cout << str << "\n";
