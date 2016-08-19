@@ -41,4 +41,6 @@ std::string rot13(std::string message) {
   for(auto letter : message) {
     std::cout << letter << "  " << switchChar(std::string(1, letter)) << std::endl;
   }
+
+  return message;
 }
