@@ -16,17 +16,10 @@ int main(int argc, char* argv[]) {
   std::string filename = argv[1];
 
   std::ifstream text(filename);
+  std::stringstream buffer;
+  buffer << text.rdbuf();
 
-  if(text.is_open()) {
-    // tellg - find 'get' position
-    auto size = text.tellg();
-    std::string str(size, '\0');
-    text.seekg(0);
-    text.read(&str, size);
-    std::cout << str << "\n";
-  } else {
-    std::cerr << "Couldn't open " << filename << std::endl;
-  }
+  std::cout << buffer.str() << std::endl;
 
   std::cout << rot13("Hello World!") << std::endl;
 
