@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
 
   std::cout << buffer.str() << std::endl;
 
-  std::cout << rot13("Hello World!") << std::endl;
+  std::cout << rot13(buffer.str()) << std::endl;
 
   return 0;
 }
