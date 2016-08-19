@@ -20,9 +20,16 @@ int main(int argc, char* argv[]) {
   std::stringstream buffer;
   buffer << text.rdbuf();
 
-  std::cout << buffer.str() << std::endl;
+  std::string converted = rot13(buffer.str());
 
-  std::cout << rot13(buffer.str()) << std::endl;
+  // std::cout << buffer.str() << std::endl;
+
+  std::cout << converted << std::endl;
+
+  std::ofstream output;
+  output.open(filename);
+  output << converted;
+  output.close();
 
   return 0;
 }
