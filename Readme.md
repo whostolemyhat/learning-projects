@@ -46,12 +46,12 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 14. [x] Write a programme to simulate a simple calculator. It should accept two numbers from the user along with the required operation to be performed. Addition, subtraction, division and multiplication are the basic operations that should be implemented. Feel free to implement other operations. Bonus points for splitting the calculation functions into a separate module.
 15. [x] Determine how much money is in a piggy bank that contains several £2 coins, £1 coins, 50p coins, 20p coins, 10p coins and 5p coins. Use the following values to test your programme: one £2, three £1, five 50p  coins, two 20p coins, one 10p coin and fifteen 5p coins.
 16. [x] Create a simple palindrome checker programme. The programme should allow the user to enter a string and check whether the given string is a palindrome or not. Only digits and alphabets should be considered while checking for palindromes - any other characters are to be ignored.
-17. [ ] Write a programme that allows you to input students' scores and weights. The programme should then calculate a weighted average and score.
+17. [x] Write a programme that allows you to input students' midterm, final and homework scores, and calculate a weighted score. Use the following weights: 20% midterm, 40% final, 40% median homework.
 
 ## Intermediate
 
-- [ ] Simple file encryption (using something simple like ROT13).
-- [ ] Write a programme which will print all the pairs of prime numbers whose sum equals the number entered by the user.
+18. [x] Simple file encryption (using something simple like ROT13).
+19. [ ] Write a programme which will print all the pairs of prime numbers whose sum equals the number entered by the user.
 - [ ] Develop a animal classification programme base on the animal kingdom. (for practicing the use of inhabitant classes) ??
 - [ ] Write a quiz which retrieves a question and answer from a file. Allow the user to take the quiz, count points total and show score.
 - [ ] Write a programme that accepts XHTML, parses and removes the tags, then prints out the remaining text.

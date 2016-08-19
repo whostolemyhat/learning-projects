@@ -11,7 +11,6 @@ fn main() {
   if args.len() < 2 {
     println!("Provide a file to convert.\nUsage: {} filename", args[0]);
   } else {
-    // let filename = "C:/Users/james.tease/Documents/proj/18-encryption/encrypt/secret.txt";
     let ref filename = args[1];
     match File::open(filename) {
       Ok(mut file) => {
