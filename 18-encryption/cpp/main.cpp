@@ -19,10 +19,10 @@ int main(int argc, char* argv[]) {
 
   if(text.is_open()) {
     // tellg - find 'get' position
-    auto size = is.tellg();
+    auto size = text.tellg();
     std::string str(size, '\0');
-    is.seekg(0);
-    is.read(&str, size);
+    text.seekg(0);
+    text.read(&str, size);
     std::cout << str << "\n";
   } else {
     std::cerr << "Couldn't open " << filename << std::endl;
