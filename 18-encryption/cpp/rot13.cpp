@@ -70,7 +70,7 @@ std::string rot13(std::string message) {
   std::string converted;
 
   for(auto letter : message) {
-    std::cout << letter << "  " << letters[letter] << std::endl;
+    std::cout << letter << "  " << switchChar(letter) << std::endl;
   }
 
   return message;
