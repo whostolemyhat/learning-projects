@@ -1,6 +1,7 @@
 #include "rot13.h"
 #include <unordered_map>
 #include <iostream>
+#include <ctype>
 
 std::unordered_map<std::string, std::string> letters = {
   {"A", "N"},
@@ -57,9 +58,13 @@ std::unordered_map<std::string, std::string> letters = {
   {"z", "m"}
 };
 
-// std::string switchChar(std::string letter) {
-//   return letters[letter];
-// }
+std::string switchChar(std::string letter) {
+  if(letter.isalpha()) {
+    return letters[letter];
+  } else {
+    return letter;
+  }
+}
 
 std::string rot13(std::string message) {
   std::string converted;
