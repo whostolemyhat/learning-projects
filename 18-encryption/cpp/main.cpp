@@ -10,10 +10,6 @@ int main(int argc, char* argv[]) {
     return 1;
   }
 
-  for (int i = 0; i < argc; i++) {
-    std::cout << argv[i] << std::endl;
-  }
-
   std::string filename = argv[1];
 
   std::ifstream text(filename);
@@ -22,14 +18,15 @@ int main(int argc, char* argv[]) {
 
   std::string converted = rot13(buffer.str());
 
-  // std::cout << buffer.str() << std::endl;
 
-  std::cout << converted << std::endl;
+  // std::cout << converted << std::endl;
 
   std::ofstream output;
   output.open(filename);
   output << converted;
   output.close();
+
+  std::cout << "Converted " << filename << std::endl;
 
   return 0;
 }
