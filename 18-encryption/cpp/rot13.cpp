@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cctype>
 
-std::unordered_map<char, std::string> letters = {
+std::unordered_map<std::string, std::string> letters = {
   {"A", "N"},
   {"B", "O"},
   {"C", "P"},
@@ -58,8 +58,8 @@ std::unordered_map<char, std::string> letters = {
   {"z", "m"}
 };
 
-std::string switchChar(char letter) {
-  if(letter.isalpha()) {
+std::string switchChar(std::string letter) {
+  if(std::isalpha(letter)) {
     return letters[letter];
   } else {
     return letter;
@@ -70,7 +70,7 @@ std::string rot13(std::string message) {
   std::string converted;
 
   for(auto letter : message) {
-    std::cout << letter << "  " << letters[letter] << std::endl;
+    std::cout << letter << "  " << letters[std::string(1, letter)] << std::endl;
   }
 
   return message;
