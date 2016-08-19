@@ -15,7 +15,9 @@ int main(int argc, char* argv[]) {
 
   std::string filename = argv[1];
 
-  if(std::fstream is{filename}) {
+  std::ifstream text(filename);
+
+  if(text.is_open()) {
     // tellg - find 'get' position
     auto size = is.tellg();
     std::string str(size, '\0');
