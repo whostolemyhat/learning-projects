@@ -1,6 +1,5 @@
 #include "rot13.h"
 #include <unordered_map>
-#include <iostream>
 #include <cctype>
 
 std::unordered_map<char, char> letters = {
@@ -70,8 +69,9 @@ std::string rot13(std::string message) {
   std::string converted;
 
   for(auto letter : message) {
-    std::cout << letter << "  " << switchChar(letter) << std::endl;
+    // std::cout << letter << "  " << switchChar(letter) << std::endl;
+    converted.push(switchChar(letter));
   }
 
-  return message;
+  return converted;
 }
