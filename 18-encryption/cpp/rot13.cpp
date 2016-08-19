@@ -16,6 +16,19 @@ std::unordered_map<std::string, std::string> letters = {
   {"K", "X"},
   {"L", "Y"},
   {"M", "Z"},
+  {"N", "A"},
+  {"O", "B"},
+  {"P", "C"},
+  {"Q", "D"},
+  {"R", "E"},
+  {"S", "F"},
+  {"T", "G"},
+  {"U", "H"},
+  {"V", "I"},
+  {"W", "J"},
+  {"X", "K"},
+  {"Y", "L"},
+  {"Z", "M"},
   {"a", "n"},
   {"b", "o"},
   {"c", "p"},
@@ -29,17 +42,30 @@ std::unordered_map<std::string, std::string> letters = {
   {"k", "x"},
   {"l", "y"},
   {"m", "z"}
+  {"n", "a"}
+  {"o", "b"}
+  {"p", "c"}
+  {"q", "d"}
+  {"r", "e"}
+  {"s", "f"}
+  {"t", "g"}
+  {"u", "h"}
+  {"v", "i"}
+  {"w", "j"}
+  {"x", "k"}
+  {"y", "l"}
+  {"z", "m"}
 };
 
-std::string switchChar(std::string letter) {
-  return letters[letter];
-}
+// std::string switchChar(std::string letter) {
+//   return letters[letter];
+// }
 
 std::string rot13(std::string message) {
   std::string converted;
 
   for(auto letter : message) {
-    std::cout << letter << "  " << switchChar(std::string(1, letter)) << std::endl;
+    std::cout << letter << "  " << letters[std::string(1, letter)] << std::endl;
   }
 
   return message;
