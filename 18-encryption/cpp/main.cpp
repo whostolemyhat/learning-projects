@@ -1,6 +1,7 @@
 // g++ -std=c++11 -Wall *.cpp -o output
 #include "rot13.h"
 #include <iostream>
+#include <sstream>
 #include <fstream>
 
 int main(int argc, char* argv[]) {
