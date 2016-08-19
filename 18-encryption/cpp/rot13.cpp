@@ -1,7 +1,7 @@
 #include "rot13.h"
 #include <unordered_map>
 #include <iostream>
-#include <ctype>
+#include <cctype>
 
 std::unordered_map<std::string, std::string> letters = {
   {"A", "N"},
