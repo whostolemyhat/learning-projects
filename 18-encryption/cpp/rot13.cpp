@@ -66,11 +66,11 @@ char switchChar(char letter) {
 }
 
 std::string rot13(std::string message) {
-  std::string converted;
+  std::string converted = "";
 
   for(auto letter : message) {
     // std::cout << letter << "  " << switchChar(letter) << std::endl;
-    converted.push(switchChar(letter));
+    converted.append(switchChar(letter));
   }
 
   return converted;
