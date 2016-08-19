@@ -62,7 +62,7 @@ std::string switchChar(char letter) {
   if(std::isalpha(letter)) {
     return letters[std::string(1, letter)];
   } else {
-    return letter;
+    return std::string(1, letter);
   }
 }
 
