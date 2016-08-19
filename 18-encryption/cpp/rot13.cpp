@@ -38,7 +38,7 @@ std::string switchChar(std::string letter) {
 std::string rot13(std::string message) {
   std::string converted;
 
-  for(auto letter : message) {
+  for(std::string letter : message) {
     std::cout << letter << "  " << switchChar(letter) << std::endl;
   }
 }
