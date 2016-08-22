@@ -1,6 +1,6 @@
 #include <vector>
 
-std::vector createSieve(int limit) {
+std::vector<bool> createSieve(int limit) {
   std::vector primes = { true; limit };
 
   return primes;
@@ -9,7 +9,7 @@ std::vector createSieve(int limit) {
 int main() {
   int target = 32;
 
-  std::vector sieve = createSieve(target);
+  std::vector<bool> sieve = createSieve(target);
 
   return 0;
 }
