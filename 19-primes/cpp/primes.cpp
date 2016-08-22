@@ -12,7 +12,9 @@ int main() {
 
   std::vector<bool> sieve = createSieve(target);
 
-  std::cout << sieve << std::endl;
+  for(auto item : sieve) {
+    std::cout << item << std::endl;
+  }
 
   return 0;
 }
