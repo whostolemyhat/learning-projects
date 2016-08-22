@@ -2,7 +2,7 @@
 #include <vector>
 
 std::vector<bool> createSieve(int limit) {
-  std::vector<bool> primes = { limit, true };
+  std::vector<bool> primes = { (size_type)limit, true };
 
   return primes;
 }
