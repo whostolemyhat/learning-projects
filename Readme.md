@@ -51,8 +51,8 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 ## Intermediate
 
 18. [x] Simple file encryption (using something simple like ROT13).
-19. [ ] Write a programme which will print all the pairs of prime numbers whose sum equals the number entered by the user.
-- [ ] Develop a animal classification programme base on the animal kingdom. (for practicing the use of inhabitant classes) ??
+19. [x] Write a programme which will print all the pairs of prime numbers whose sum equals the number entered by the user. Eg 10 = 5 + 5, 7 + 3; 12 = 11 + 1, 5 + 7
+20. [ ] Develop a animal classification programme base on the animal kingdom. (for practicing the use of inhabitant classes) ??
 - [ ] Write a quiz which retrieves a question and answer from a file. Allow the user to take the quiz, count points total and show score.
 - [ ] Write a programme that accepts XHTML, parses and removes the tags, then prints out the remaining text.
 - [ ] Write a programme which performs addition, subtraction, multiplication of matrices. The dimensions of both the matrices would be specified by the user (dynamic memory allocation required). Use of structure or a class to define the matrix would be a good idea.

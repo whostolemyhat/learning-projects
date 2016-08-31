@@ -18,9 +18,6 @@ int main(int argc, char* argv[]) {
 
   std::string converted = rot13(buffer.str());
 
-
-  // std::cout << converted << std::endl;
-
   std::ofstream output;
   output.open(filename);
   output << converted;

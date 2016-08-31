@@ -5,7 +5,6 @@ import rot13
 
 def main():
     """Run the programme"""
-
     if len(sys.argv) < 2:
         print("Provide the name of a file to convert")
         sys.exit()
