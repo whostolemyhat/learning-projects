@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include <pair>
 #include <cassert>
 
 std::vector<bool> createSieve(int limit) {
@@ -28,14 +28,39 @@ std::vector<bool> createSieve(int limit) {
 }
 
 int main() {
-  int target = 32;
+  std::cout << "Enter a number: ";
+
+  int target;
+
+  std::cin >> target;
+
+  if(!std::cin) {
+    std::cout << "That's no number!" << std::endl;
+    return 1;
+  }
 
   std::vector<bool> sieve = createSieve(target);
 
-  for(auto item : sieve) {
-    std::cout << item << std::endl;
+  std::vector<std::pair<int, int>> results;
+  for(int i = 0; i < target / 2; i++) {
+    if(sieve[i] == true) {
+      if(sieve[target - i] == true) {
+        // std::pair<int, int> result(i, target - i);
+        // emaplce_back adds straight into a pair in vec
+        results.emplace_back(i, target - i);
+      }
+    }
   }
 
+  // for(auto item : sieve) {
+  //   std::cout << item << std::endl;
+  // }
+
+  for(auto result : results) {
+    std::cout << result.first << ", " << result.second << std::endl;
+  }
+
+  // bit of testing :)
   assert(sieve[2] == true);
   assert(sieve[3] == true);
   assert(sieve[4] == false);
