@@ -21,10 +21,13 @@ int main(int argc, char* argv[]) {
   std::string filename = argv[1];
 
   // read file
-  std::stringstream contents = open_file(filename);
+  std::ifstream text(filename);
+  std::stringstream buffer;
+  buffer << text.rdbuf();
+  // std::stringstream contents = open_file(filename);
 
   // convert from JSON
-  json data = json::parse(contents);
+  json data = json::parse(contents.str());
 
   std::cout << data;
   // read questions
