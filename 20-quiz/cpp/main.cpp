@@ -23,16 +23,12 @@ int main(int argc, char* argv[]) {
 
   std::string filename = argv[1];
 
-  // read file
-  std::ifstream text(filename);
-  std::stringstream buffer;
-  buffer << text.rdbuf();
-  // std::stringstream contents = open_file(filename);
+  std::stringstream contents = open_file(filename);
 
   // convert from JSON
-  json data = json::parse(buffer.str());
+  json data = json::parse(contents.str());
 
-  std::cout << data;
+  std::cout << data[0] << std::endl;
   // read questions
   return 0;
 }
