@@ -2,6 +2,8 @@
 #include <string>
 #include "json.h"
 
+using json = nlohmann::json;
+
 std::stringstream open_file(std::string filename) {
   std::ifstream text(filename);
   std::stringstream buffer;
@@ -22,8 +24,7 @@ int main(int argc, char* argv[]) {
   std::stringstream contents = open_file(filename);
 
   // convert from JSON
-  Json::Value data;
-  data = contents;
+  json data = json::parse(contents);
 
   std::cout << data;
   // read questions
