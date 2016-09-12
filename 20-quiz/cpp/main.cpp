@@ -49,8 +49,8 @@ int main(int argc, char* argv[]) {
   json data = json::parse(contents.str());
   std::vector<Question> questions = get_questions(data);
 
-  for(auto q : questions) {
-    std::cout << q << std::endl;
+  for(Question q : questions) {
+    std::cout << q.question << "\n" << q.answer << std::endl;
   }
   // std::cout << data[0] << std::endl;
   // read questions
