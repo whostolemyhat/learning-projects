@@ -21,7 +21,7 @@ std::stringstream open_file(std::string filename) {
   return buffer;
 }
 
-std::vector get_questions(json data) {
+std::vector<Question> get_questions(json data) {
   std::vector<Question> questions;
   // for(json::iterator it = data.begin; it != data.end(); it++) {
   for(auto entry : data) {
@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
 
   // convert from JSON
   json data = json::parse(contents.str());
-  std::vector questions = get_questions(data);
+  std::vector<Question> questions = get_questions(data);
 
   for(auto q : questions) {
     std::cout << q << std::endl;
