@@ -52,7 +52,8 @@ int main(int argc, char* argv[]) {
     std::cout << q.question << "\n" << q.answer << std::endl;
     std::cout << q.question << std::endl;
     std::string answer;
-    if(!std::cin >> answer) {
+    std::cin >> answer;
+    if(!std::cin) {
       std::cerr << "Enter your answer!" << std::endl;
       return 1;
     }
