@@ -51,17 +51,16 @@ int main(int argc, char* argv[]) {
 
   int score = 0;
   for(Question q : questions) {
-    // std::cout << q.question << "\n" << q.answer << std::endl;
     std::cout << q.question << std::endl;
     std::string answer;
     std::getline(std::cin, answer);
-    // std::cin >> answer;
+
     if(!std::cin) {
       std::cerr << "Enter your answer!" << std::endl;
       return 1;
     }
 
-    // transform to lowercase
+    // transform to lowercase - in-place
     std::transform(answer.begin(), answer.end(), answer.begin(), ::tolower);
     std::transform(q.answer.begin(), q.answer.end(), q.answer.begin(), ::tolower);
 
@@ -69,7 +68,7 @@ int main(int argc, char* argv[]) {
       std::cout << "Correct!" << std::endl;
       score++;
     } else {
-      std::cout << "Nope" << std::endl;
+      std::cout << "Nope. The answe is " << q.answer << std::endl;
     }
   }
 
