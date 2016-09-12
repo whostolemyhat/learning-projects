@@ -20,6 +20,7 @@ int main(int argc, char* argv[]) {
   // get filename from args
   if(argc == 1) {
     std::cerr << "Provide a question file" << std::endl;
+    return 1;
   }
 
   std::string filename = argv[1];
