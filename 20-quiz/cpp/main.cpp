@@ -2,6 +2,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <utility>
 
 // https://github.com/nlohmann/json
 #include "json.h"
@@ -58,6 +59,10 @@ int main(int argc, char* argv[]) {
       std::cerr << "Enter your answer!" << std::endl;
       return 1;
     }
+
+    // transform to lowercase
+    std::transform(answer.begin(), answer.end(), answer.begin(), ::tolower);
+    std::transform(q.answer.begin(), q.answer.end(), q.answer.begin(), ::tolower);
 
     if(answer == q.answer) {
       std::cout << "Correct!" << std::endl;
