@@ -9,8 +9,8 @@
 using json = nlohmann::json;
 
 struct Question {
-  std::string question,
-  std::string answer
+  std::string question;
+  std::string answer;
 }
 
 std::stringstream open_file(std::string filename) {
