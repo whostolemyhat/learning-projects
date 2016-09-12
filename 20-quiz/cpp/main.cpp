@@ -42,7 +42,6 @@ int main(int argc, char* argv[]) {
   }
 
   std::string filename = argv[1];
-
   std::stringstream contents = open_file(filename);
 
   // convert from JSON
@@ -51,9 +50,20 @@ int main(int argc, char* argv[]) {
 
   for(Question q : questions) {
     std::cout << q.question << "\n" << q.answer << std::endl;
+    std::cout << q.question << std::endl;
+    std::string answer;
+    if(!std::cin >> answer) {
+      std::cerr << "Enter your answer!" << std::endl;
+      return 1;
+    }
+
+    if(answer == q.answer) {
+      std::cout << "Correct!" << std::endl;
+    } else {
+      std::cout << "Nope" << std::endl;
+    }
   }
-  // std::cout << data[0] << std::endl;
-  // read questions
+
 
   return 0;
 }
