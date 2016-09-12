@@ -68,7 +68,7 @@ int main(int argc, char* argv[]) {
       std::cout << "Correct!" << std::endl;
       score++;
     } else {
-      std::cout << "Nope. The answe is " << q.answer << std::endl;
+      std::cout << "Nope. The answer is " << q.answer << std::endl;
     }
   }
 
