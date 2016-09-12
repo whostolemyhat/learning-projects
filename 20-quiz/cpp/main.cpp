@@ -3,6 +3,7 @@
 #include <sstream>
 #include <fstream>
 
+// https://github.com/nlohmann/json
 #include "json.h"
 
 using json = nlohmann::json;
@@ -17,7 +18,7 @@ std::stringstream open_file(std::string filename) {
 
 int main(int argc, char* argv[]) {
   // get filename from args
-  if(argc == 0) {
+  if(argc == 1) {
     std::cerr << "Provide a question file" << std::endl;
   }
 
@@ -30,5 +31,6 @@ int main(int argc, char* argv[]) {
 
   std::cout << data[0] << std::endl;
   // read questions
+
   return 0;
 }
