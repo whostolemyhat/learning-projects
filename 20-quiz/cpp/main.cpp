@@ -8,12 +8,30 @@
 
 using json = nlohmann::json;
 
+struct Question {
+  std::string question,
+  std::string answer
+}
+
 std::stringstream open_file(std::string filename) {
   std::ifstream text(filename);
   std::stringstream buffer;
   buffer << text.rdbuf();
 
   return buffer;
+}
+
+std::vector get_questions(json data) {
+  std::vector<Question> questions;
+  // for(json::iterator it = data.begin; it != data.end(); it++) {
+  for(auto entry : data) {
+    Question q;
+    q.question = entry["question"];
+    q.answer = entry["answer"];
+    questions.push_back(q);
+  }
+
+  return questions;
 }
 
 int main(int argc, char* argv[]) {
@@ -29,8 +47,12 @@ int main(int argc, char* argv[]) {
 
   // convert from JSON
   json data = json::parse(contents.str());
+  std::vector questions = get_questions(data);
 
-  std::cout << data[0] << std::endl;
+  for(auto q : questions) {
+    std::cout << q << std::endl;
+  }
+  // std::cout << data[0] << std::endl;
   // read questions
 
   return 0;
