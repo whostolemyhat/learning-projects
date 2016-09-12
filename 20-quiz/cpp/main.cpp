@@ -48,8 +48,9 @@ int main(int argc, char* argv[]) {
   json data = json::parse(contents.str());
   std::vector<Question> questions = get_questions(data);
 
+  int score = 0;
   for(Question q : questions) {
-    std::cout << q.question << "\n" << q.answer << std::endl;
+    // std::cout << q.question << "\n" << q.answer << std::endl;
     std::cout << q.question << std::endl;
     std::string answer;
     std::cin >> answer;
@@ -60,10 +61,13 @@ int main(int argc, char* argv[]) {
 
     if(answer == q.answer) {
       std::cout << "Correct!" << std::endl;
+      score++;
     } else {
       std::cout << "Nope" << std::endl;
     }
   }
+
+  std::cout << "You scored " << score << " out of " << questions.size() << std::endl;
 
 
   return 0;
