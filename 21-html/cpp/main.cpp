@@ -1,5 +1,6 @@
 #include <iostream>
 #include "util.h"
+#include "html.h"
 
 int main(int argc, char* argv[]) {
   if(argc == 1) {
@@ -9,5 +10,5 @@ int main(int argc, char* argv[]) {
 
   std::stringstream contents = open_file(argv[1]);
 
-  std::cout << contents.str() << std::endl;
+  std::cout << strip_tags(contents.str()) << std::endl;
 }
