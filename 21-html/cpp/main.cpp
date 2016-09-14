@@ -8,4 +8,6 @@ int main(int argc, char* argv[]) {
   }
 
   std::stringstream contents = open_file(argv[1]);
+
+  std::cout << "test" << contents << std::endl;
 }
