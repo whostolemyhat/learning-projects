@@ -9,5 +9,5 @@ int main(int argc, char* argv[]) {
 
   std::stringstream contents = open_file(argv[1]);
 
-  std::cout << contents << std::endl;
+  std::cout << contents.str() << std::endl;
 }
