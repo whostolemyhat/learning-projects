@@ -1,6 +1,6 @@
 [package]
 name = "circle"
 version = "0.1.0"
-authors = ["James Tease <james.tease@rotork.com>"]
+authors = ["James Tease <james@jamestease.co.uk>"]
 
 [dependencies]

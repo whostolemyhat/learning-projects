@@ -9,8 +9,7 @@ use rustc_serialize::json;
 #[derive(Debug, RustcDecodable)]
 struct Question {
   question: String,
-  answer: String,
-  user_answer: Option<String>
+  answer: String
 }
 
 fn check_answer(actual_answer: &String, answer: String) -> bool {
