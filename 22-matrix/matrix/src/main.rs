@@ -48,16 +48,6 @@ impl<T> Matrix<T> where T: Copy {
 
     new_matrix
   }
-
-  fn dot(self, other: Matrix<T>) -> Self {
-    for i in 0..self.rows {
-      for j in 0..self.cols {
-
-      }
-    }
-
-    self
-  }
 }
 
 // Make sure generic type T implements Add (so you can add them together)
@@ -105,6 +95,7 @@ impl<T> Sub for Matrix<T> where T: Sub<Output=T> + Copy + Default {
 impl<T> Mul for Matrix<T> where T: Mul<Output=T> + Copy + Default + Add<Output=T> {
   type Output = Matrix<T>;
 
+  // this is dot product
   fn mul(self, other: Matrix<T>) -> Matrix<T> {
     // other.rows must eq self.cols
     // size = self.rows x other.cols
@@ -128,7 +119,6 @@ impl<T> Mul for Matrix<T> where T: Mul<Output=T> + Copy + Default + Add<Output=T
 }
 
 // transpose
-// dot
 // outer
 
 impl<T> Display for Matrix<T> where T: Display {
@@ -211,26 +201,19 @@ fn main() {
 
   println!("{}", this_one * another);
 
-  let mut same_one = Matrix::new(3, 1, 1);
-  same_one.matrix[1][0] = 2;
-  same_one.matrix[2][0] = 3;
-
-  let mut same_two = Matrix::new(3, 1, 4);
-  same_two.matrix[1][0] = 5;
-  same_two.matrix[2][0] = 6;
-
-  println!("{}", same_one.dot(same_two));
-
   let seventh = Matrix::new(4, 5, 7);
   println!("{}", seventh.scalar_mul(3));
 
+  let first_dot = Matrix::new_from_vec(vec![
+    vec![3, 4, 2]
+  ]);
   let matrix = vec![
     vec![13, 9, 7, 15],
     vec![8, 7, 4, 6],
     vec![6, 4, 0, 3]
   ];
-  let second = Matrix::new_from_vec(matrix);
-  println!("{}", second);
+  let second_dot = Matrix::new_from_vec(matrix);
+  println!("{}", first_dot * second_dot);
 }
 
 
@@ -338,6 +321,21 @@ mod test {
 
     let third_matrix = vec![vec![46], vec![118]];
     assert_eq!((this_one * another).matrix, third_matrix);
+
+    // [3 4 2] x [13 9 7 15 = [83 63 37 75] (83 = 3x13 + 4x8 + 2x6)
+    //             8 7 4 6
+    //             6 4 0 3]
+    let first_dot = Matrix::new_from_vec(vec![
+      vec![3, 4, 2]
+    ]);
+    let second_dot = Matrix::new_from_vec(vec![
+      vec![13, 9, 7, 15],
+      vec![8, 7, 4, 6],
+      vec![6, 4, 0, 3]
+    ]);
+    let merged = vec![vec![83, 63, 37, 75]];
+
+    assert_eq!((first_dot * second_dot).matrix, merged);
   }
 
   #[test]
@@ -353,17 +351,5 @@ mod test {
     let second_matrix = vec![vec![1.5, 1.5], vec![1.5, 1.5], vec![1.5, 1.5], vec![1.5, 1.5]];
 
     assert_eq!(fourth.matrix, second_matrix);
-  }
-
-  #[test]
-  fn dot() {
-    // [3 4 2] x [13 9 7 15 = [83 63 37 75] (83 = 3x13 + 4x8 + 2x6)
-    //             8 7 4 6
-    //             6 4 0 3]
-    let mut first = Matrix::new(1, 3, 3);
-    first.matrix[0][1] = 4;
-    first.matrix[0][2] = 2;
-
-
   }
 }

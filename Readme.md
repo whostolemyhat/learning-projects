@@ -53,8 +53,8 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 18. [x] Simple file encryption (using something simple like ROT13).
 19. [x] Write a programme which will print all the pairs of prime numbers whose sum equals the number entered by the user. Eg 10 = 5 + 5, 7 + 3; 12 = 11 + 1, 5 + 7
 20. [x] Write a quiz which retrieves a question and answer from a file. Allow the user to take the quiz, count points total and show score.
-21. [ ] Read XHTML, remove the tags, then print out the remaining text.
-- [ ] Write a programme which performs addition, subtraction, multiplication of matrices. The dimensions of both the matrices would be specified by the user (dynamic memory allocation required). Use of structure or a class to define the matrix would be a good idea.
+21. [x] Read XHTML, remove the tags, then print out the remaining text.
+22. [ ] Write a programme which performs addition, subtraction, multiplication of matrices. The dimensions of both the matrices would be specified by the user (dynamic memory allocation required). Use of structure or a class to define the matrix would be a good idea.
 - [ ] Write a programme which will perform the job of moving the file from one location to another. The source and destination path will be entered by the user. Perform the required error checking and handle the exceptions accordingly.
 - [ ] Create a sophisticated linked list class. You should be able to insert and delete nodes anywhere in the list, and the nodes should have pointers to nodes both in front and behind them.
 - [ ] Create a programme that implements a database. The fields are hard-coded, and the data is saved in a binary file. Although this isn't really flexibility, you aren't relying on any external libraries or functions.
