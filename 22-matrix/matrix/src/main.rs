@@ -1,12 +1,14 @@
 // https://doc.rust-lang.org/std/ops/
 // https://users.rust-lang.org/t/beginner-query-implementing-traits-for-generic-structs/2871/4
 extern crate matrix;
+extern crate util;
 
 use std::io;
 use std::io::prelude::*;
-use matrix::Matrix;
+use matrix::{ Matrix, random_matrix };
+use util::read_number;
 
-fn main() {
+fn get_user_matrix() -> Result<Matrix<i32>, &'static str> {
   println!("Enter matrix row by row. Press 'enter' twice to finish");
 
   let mut matrix: Vec<Vec<i32>> = Vec::new();
@@ -30,8 +32,30 @@ fn main() {
   if matrix.len() > 0 {
     // if uneven input, new_from_vec just takes len of first row
     let created = Matrix::new_from_vec(matrix);
-    println!("{}", created);
+
+    Ok(created)
+  } else {
+    Err("Enter the matrix")
   }
+
+}
+
+fn main() {
+  // read in user matrix
+  // match get_user_matrix() {
+  //   Err(e) => panic!("{:?}", e),
+  //   Ok(matrix) => println!("{}", matrix)
+  // }
+
+  println!("Enter rows:");
+  let rows: i32 = read_number();
+
+  println!("Enter cols:");
+  let cols: i32 = read_number();
+
+  let ran = random_matrix(rows, cols);
+  let another = random_matrix(rows, cols);
+  println!("{}\n\n{}", ran, another);
 
   // testing stuff
   // println!("{}", random_matrix(3, 3));

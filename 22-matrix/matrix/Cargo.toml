@@ -5,3 +5,6 @@ authors = ["James Tease <james@jamestease.co.uk>"]
 
 [dependencies.matrix]
 path = "matrix"
+
+[dependencies.util]
+path = "util"
