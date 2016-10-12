@@ -109,6 +109,7 @@ impl<T> Mul for Matrix<T> where T: Mul<Output=T> + Copy + Default + Add<Output=T
 
   // this is dot product
   fn mul(self, other: Matrix<T>) -> Matrix<T> {
+    // TODO: add a check for other.rows and self.cols (currently panics)
     // other.rows must eq self.cols
     // size = self.rows x other.cols
 

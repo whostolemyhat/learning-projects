@@ -41,89 +41,43 @@ fn get_user_matrix() -> Result<Matrix<i32>, &'static str> {
 }
 
 fn main() {
-  // read in user matrix
-  // match get_user_matrix() {
-  //   Err(e) => panic!("{:?}", e),
-  //   Ok(matrix) => println!("{}", matrix)
-  // }
+  println!("1. Enter matrices manually\n2. Use random matrices");
+  let input_type = read_number();
+  let mut first: Matrix<i32>;
+  let mut second: Matrix<i32>;
 
-  println!("Enter rows:");
-  let rows: i32 = read_number();
+  if input_type == 1 {
+    // read in user matrix
+    first = match get_user_matrix() {
+      Err(e) => panic!("{:?}", e),
+      Ok(matrix) => matrix
+    };
 
-  println!("Enter cols:");
-  let cols: i32 = read_number();
+    second = match get_user_matrix() {
+      Err(e) => panic!("{:?}", e),
+      Ok(matrix) => matrix
+    };
+  } else {
+    println!("Enter rows:");
+    let rows: i32 = read_number();
 
-  let ran = random_matrix(rows, cols);
-  let another = random_matrix(rows, cols);
-  println!("{}\n\n{}", ran, another);
+    println!("Enter cols:");
+    let cols: i32 = read_number();
 
-  // testing stuff
-  // println!("{}", random_matrix(3, 3));
-  // println!("{}", random_matrix(3, 6));
-  // println!("{}", random_matrix(2, 2));
+    first = random_matrix(rows, cols);
+    second = random_matrix(rows, cols);
+  }
 
-  // println!("{}", Matrix::new(3, 3, 1));
-  // println!("{}", Matrix::new(3, 6, 0));
-  // println!("{}", Matrix::new(2, 2, 2));
+  println!("Choose operation:\n1. Add\n2. Subtract,\n3. Multiply,\n4. Scalar multiply,\n5. Transpose");
+  let choice = read_number();
 
-  // let first = Matrix::new(3, 3, 1);
-  // let mut second = Matrix::new(3, 3, 2);
-  // second.matrix[1][1] = 1;
-  // let third = first + second;
-
-  // println!("{}", third);
-
-  // let fourth = Matrix::new(3, 3, 4);
-  // println!("{}", third - fourth);
-
-  // let mut fifth = Matrix::new(2, 3, 0);
-  // fifth.matrix[0][1] = 1;
-  // fifth.matrix[0][2] = 2;
-  // fifth.matrix[1][0] = 3;
-  // fifth.matrix[1][1] = 4;
-  // fifth.matrix[1][2] = 5;
-
-  // let mut sixth = Matrix::new(3, 2, 6);
-  // sixth.matrix[0][1] = 7;
-  // sixth.matrix[1][0] = 8;
-  // sixth.matrix[1][1] = 9;
-  // sixth.matrix[2][0] = 10;
-  // sixth.matrix[2][1] = 11;
-
-  // println!("{}", fifth * sixth);
-
-  // let this_matrix = vec![
-  //   vec![1, 2, 3],
-  //   vec![4, 5, 6]
-  // ];
-  // let this_one = Matrix::new_from_vec(this_matrix);
-
-  // let another_matrix = vec![
-  //   vec![9],
-  //   vec![8],
-  //   vec![7]
-  // ];
-  // let another = Matrix::new_from_vec(another_matrix);
-
-  // println!("{}", this_one * another);
-
-  // let seventh = Matrix::new(4, 5, 7);
-  // println!("{}", seventh.scalar_mul(3));
-
-  // let first_dot = Matrix::new_from_vec(vec![
-  //   vec![3, 4, 2]
-  // ]);
-  // let matrix = vec![
-  //   vec![13, 9, 7, 15],
-  //   vec![8, 7, 4, 6],
-  //   vec![6, 4, 0, 3]
-  // ];
-  // let second_dot = Matrix::new_from_vec(matrix);
-  // println!("{}", first_dot * second_dot);
-
-  // let transpose_one = Matrix::new_from_vec(vec![
-  //   vec![1, 2, 3],
-  //   vec![4, 5, 6]
-  // ]);
-  // println!("{}", transpose_one.transpose());
+  // clone's fine since we're just printing
+  match choice {
+    1 => println!("{}\n + \n{} \n=\n {}", first.clone(), second.clone(), first + second),
+    2 => println!("{}\n - \n{} \n=\n {}", first.clone(), second.clone(), first - second),
+    3 => println!("{} \n* \n{}\n =\n {}", first.clone(), second.clone(), first * second),
+    4 => println!("{}\n *\n 2\n =\n {}", first.clone(), first.scalar_mul(2)),
+    5 => println!("{}", first.transpose()),
+    _ => println!("Choose from options 1-5")
+  }
 }
