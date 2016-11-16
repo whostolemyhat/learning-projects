@@ -90,3 +90,4 @@ Good resources for Rust:
 - http://fredrik.anderzon.se/2016/05/10/rust-for-node-developers-part-1-introduction/
 - http://www.arewewebyet.org/#getting-started
 - http://cglab.ca/~abeinges/blah/too-many-lists/book/
+- https://www.reddit.com/r/rust/comments/5d4h8l/school_vacation_starts_tomorrow_i_want_to_know/da1zdiz/
