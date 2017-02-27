@@ -1,0 +1,8 @@
+[package]
+authors = ["James Tease <james.tease@replgroup.com>"]
+name = "todo"
+version = "0.1.0"
+[dependencies]
+handlebars = "*"
+nickel = "*"
+rustc-serialize = "*"

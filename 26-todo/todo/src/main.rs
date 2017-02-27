@@ -1,145 +1,15 @@
+mod todo;
+mod store;
+
 // from http://fredrik.anderzon.se/2016/05/10/rust-for-node-developers-part-1-introduction/
 use std::io;
 // so you don't have to namespace everything
-use Action::{ Todos, Visibility };
-use TodoAction::{ Add, Remove, Toggle };
-use VisibilityFilter::{ ShowActive, ShowCompleted, ShowAll };
+use store::Action::{ Todos, Visibility };
+use store::VisibilityFilter::{ ShowActive, ShowCompleted, ShowAll };
+use store::{ Store, State, reducer };
+use todo::TodoAction::{ Add, Remove, Toggle };
+use todo::{ Todo };
 
-#[derive(Debug, Clone)]
-struct State {
-    todos: Vec<Todo>,
-    filter: VisibilityFilter
-}
-
-impl State {
-    fn default() -> Self {
-        State {
-            todos: Vec::new(),
-            filter: VisibilityFilter::ShowAll
-        }
-    }
-}
-
-#[derive(Clone, Debug)]
-enum VisibilityFilter {
-    ShowActive,
-    ShowAll,
-    ShowCompleted
-}
-
-#[derive(Clone, Debug)]
-enum Action {
-    Todos(TodoAction),
-    Visibility(VisibilityFilter)
-}
-
-#[derive(Clone, Debug)]
-enum TodoAction {
-    Add(String),
-    Toggle(i16),
-    Remove(i16)
-}
-
-fn reducer(state: &State, action: Action) -> State {
-    State {
-        todos: todo_reducer(&state.todos, &action),
-        filter: visibility_reducer(&state.filter, &action)
-    }
-}
-
-fn get_mut_todo(todos: &mut Vec<Todo>, id: i16) -> Option<&mut Todo> {
-    todos.iter_mut().find(|todo| todo.id == id)
-}
-
-fn todo_reducer(state: &Vec<Todo>, action: &Action) -> Vec<Todo> {
-    let mut new_state: Vec<Todo> = state.clone();
-
-    match *action {
-        Todos(ref todo_action) => match *todo_action {
-            Add(ref title) => {
-                let new_id = new_state.len() as i16 + 1;
-                new_state.push(Todo::new(new_id, title.to_string(), 0))
-            },
-            Toggle(todo_id) => {
-                if let Some(todo) = get_mut_todo(&mut new_state, todo_id) {
-                    if todo.completed {
-                        todo.completed = false;
-                    } else {
-                        todo.completed = true;
-                    }
-                }
-            },
-            Remove(todo_id) => {
-                if let Some(todo) = get_mut_todo(&mut new_state, todo_id) {
-                    todo.deleted = true;
-                }
-            }
-        },
-        // not a todo action
-        _ => ()
-    }
-
-    new_state
-}
-
-fn visibility_reducer(state: &VisibilityFilter, action: &Action) -> VisibilityFilter {
-    match *action {
-        Visibility(ref vis_action) => vis_action.clone(),
-        _ => state.clone()
-    }
-}
-
-struct Store {
-    state: State,
-    listeners: Vec<fn(&State)>,
-    reducer: fn(&State, Action) -> State
-}
-
-impl Store {
-    fn create_store(reducer: fn(&State, Action) -> State) -> Store {
-        Store {
-            state: State::default(),
-            listeners: Vec::new(),
-            reducer: reducer
-        }
-    }
-
-    fn subscribe(&mut self, listener: fn(&State)) {
-        self.listeners.push(listener);
-    }
-
-    // fn get_state(&self) -> &State {
-    //     &self.state
-    // }
-
-    fn dispatch(&mut self, action: Action) {
-        self.state = (self.reducer)(&self.state, action);
-        for listener in &self.listeners {
-            listener(&self.state)
-        }
-    }
-}
-
-#[derive(Debug, Clone)]
-struct Todo {
-    id: i16,          // unique key
-    description: String,
-    completed: bool,
-    order: i32,          // where in the list should it be
-    deleted: bool
-}
-
-impl Todo {
-    fn new(id: i16, description: String, order: i32) -> Self {
-        Todo {
-            id: id,
-            description: description,
-            completed: false,
-            order: order,
-            deleted: false
-        }
-    }
-}
 
 fn print_todo(todo: &Todo) {
     let completed = if todo.completed { "✔" } else { " " };
