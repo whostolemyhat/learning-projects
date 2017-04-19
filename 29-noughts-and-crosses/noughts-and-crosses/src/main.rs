@@ -15,7 +15,7 @@ impl Board {
     fn new() -> Self {
         Board {
             board: vec![
-                vec!['.', 'o', '.'],
+                vec!['.', '.', '.'],
                 vec!['.', '.', '.'],
                 vec!['.', '.', '.']
             ]
@@ -32,36 +32,52 @@ impl Board {
         self.board[x as usize][y as usize] == '.'
     }
 
+    fn winner(&self, token: char) {
+        println!("{:?} wins!", token);
+    }
+
     fn check_neighbours(&self) {
-        // top middle
-        // centre
-        // left middle
-        // right middle
-        // bottom centre
+        if self.check_top() {
+            self.winner(self.board[0][0]);
+        } else if self.check_centre() {
+            self.winner(self.board[1][1]);
+        } else if self.check_left() {
+            self.winner(self.board[1][0]);
+        } else if self.check_right() {
+            self.winner(self.board[1][2]);
+        } else if self.check_bottom() {
+            self.winner(self.board[2][1]);
+        }
+        // println!("{:?} {:?}", self.check_top(), self.board[0][0]);
+        // println!("{:?} {:?}", self.check_centre(), self.board[1][1]);
+        // println!("{:?}", self.check_left());
+        // println!("{:?}", self.check_right());
+        // println!("{:?}", self.check_bottom());
+    }
 
-        // let token = self.board[0][1];
-        // println!("looking for {}", token);
-        println!("{:?}", self.board[0][0] != '.' && self.board[0][0] == self.board[0][2] && self.board[0][0] == self.board[0][1]);
+    fn check_top(&self) -> bool {
+        self.board[0][0] != '.' && (self.board[0][0] == self.board[0][2] && self.board[0][0] == self.board[0][1])
+    }
 
-        // centre
-        // vert
-        println!("{:?}", self.board[1][1] != '.' && self.board[1][1] == self.board[0][1] && self.board[1][1] == self.board[2][1]);
-        // horz
-        println!("{:?}", self.board[1][1] != '.' && self.board[1][1] == self.board[1][0] && self.board[1][1] == self.board[1][2]);
-        // top-left bottom-right
-        println!("{:?}", self.board[1][1] != '.' && self.board[1][1] == self.board[0][0] && self.board[1][1] == self.board[2][2]);
-        // top-right bottom-left
-        println!("{:?}", self.board[1][1] != '.' && self.board[1][1] == self.board[0][2] && self.board[1][1] == self.board[2][0]);
+    fn check_centre(&self) -> bool {
+        let vert = self.board[1][1] != '.' && (self.board[1][1] == self.board[0][1] && self.board[1][1] == self.board[2][1]);
+        let horz = self.board[1][1] != '.' && (self.board[1][1] == self.board[1][0] && self.board[1][1] == self.board[1][2]);
+        let right_diag = self.board[1][1] != '.' && (self.board[1][1] == self.board[0][0] && self.board[1][1] == self.board[2][2]);
+        let left_diag = self.board[1][1] != '.' && (self.board[1][1] == self.board[0][2] && self.board[1][1] == self.board[2][0]);
 
-        // left middle
-        println!("{:?}", self.board[1][0] != '.' && self.board[1][0] == self.board[0][0] && self.board[1][0] == self.board[2][0]);
+        vert || horz || right_diag || left_diag
+    }
 
-        // right middle
-        println!("{:?}", self.board[1][2] != '.' && self.board[1][2] == self.board[0][2] && self.board[1][2] == self.board[2][2]);
+    fn check_left(&self) -> bool {
+        self.board[1][0] != '.' && self.board[1][0] == self.board[0][0] && self.board[1][0] == self.board[2][0]
+    }
 
-        // bottom centre
-        println!("{:?}", self.board[2][1] != '.' && self.board[2][1] == self.board[2][0] && self.board[2][1] == self.board[2][2]);
+    fn check_right(&self) -> bool {
+        self.board[1][2] != '.' && self.board[1][2] == self.board[0][2] && self.board[1][2] == self.board[2][2]
+    }
 
+    fn check_bottom(&self) -> bool {
+        self.board[2][1] != '.' && self.board[2][1] == self.board[2][0] && self.board[2][1] == self.board[2][2]
     }
 }
 
