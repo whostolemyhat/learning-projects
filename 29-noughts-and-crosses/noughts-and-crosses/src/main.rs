@@ -1,11 +1,23 @@
 use std::fmt::{ Display, Formatter, Result };
 use std::io;
 
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq)]
 enum Pieces {
     Player,
     AI,
     Empty
+}
+
+impl Display for Pieces {
+    fn fmt(&self, f: &mut Formatter) -> Result {
+        match self {
+            &Pieces::Player => try!(write!(f, "x")),
+            &Pieces::AI => try!(write!(f, "o")),
+            &Pieces::Empty => try!(write!(f, "."))
+        };
+
+        Ok(())
+    }
 }
 
 struct Board {
@@ -92,7 +104,7 @@ impl Display for Board {
             try!(write!(f, "{} ", row_names[row]));
 
             for col in 0..self.board[row].len() {
-                try!(write!(f, " {:?} ", self.board[row as usize][col as usize]));
+                try!(write!(f, " {} ", self.board[row as usize][col as usize]));
             }
             try!(write!(f, "\n"));
         }
