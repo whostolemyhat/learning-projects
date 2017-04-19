@@ -1,83 +1,79 @@
 use std::fmt::{ Display, Formatter, Result };
 use std::io;
 
-// enum Pieces {
-//     Player { token: 'x' },
-//     AI { token: 'o' },
-//     Empty { token: '.' }
-// }
+#[derive(PartialEq, Debug)]
+enum Pieces {
+    Player,
+    AI,
+    Empty
+}
 
 struct Board {
-    board: Vec<Vec<char>>
+    board: Vec<Vec<Pieces>>
 }
 
 impl Board {
     fn new() -> Self {
         Board {
             board: vec![
-                vec!['.', '.', '.'],
-                vec!['.', '.', '.'],
-                vec!['.', '.', '.']
+                vec![Pieces::Empty, Pieces::Empty, Pieces::Empty],
+                vec![Pieces::Empty, Pieces::Empty, Pieces::Empty],
+                vec![Pieces::Empty, Pieces::Empty, Pieces::Empty]
             ]
         }
     }
 
     fn update(&mut self, x: u8, y: u8) {
         if self.can_place(x, y) {
-            self.board[x as usize][y as usize] = 'x';
+            self.board[x as usize][y as usize] = Pieces::Player;
         }
     }
 
     fn can_place(&self, x: u8, y: u8) -> bool {
-        self.board[x as usize][y as usize] == '.'
+        self.board[x as usize][y as usize] == Pieces::Empty
     }
 
-    fn winner(&self, token: char) {
+    fn winner(&self, token: &Pieces) {
         println!("{:?} wins!", token);
     }
 
     fn check_neighbours(&self) {
         if self.check_top() {
-            self.winner(self.board[0][0]);
+            self.winner(&self.board[0][0]);
         } else if self.check_centre() {
-            self.winner(self.board[1][1]);
+            self.winner(&self.board[1][1]);
         } else if self.check_left() {
-            self.winner(self.board[1][0]);
+            self.winner(&self.board[1][0]);
         } else if self.check_right() {
-            self.winner(self.board[1][2]);
+            self.winner(&self.board[1][2]);
         } else if self.check_bottom() {
-            self.winner(self.board[2][1]);
+            self.winner(&self.board[2][1]);
         }
-        // println!("{:?} {:?}", self.check_top(), self.board[0][0]);
-        // println!("{:?} {:?}", self.check_centre(), self.board[1][1]);
-        // println!("{:?}", self.check_left());
-        // println!("{:?}", self.check_right());
-        // println!("{:?}", self.check_bottom());
     }
 
     fn check_top(&self) -> bool {
-        self.board[0][0] != '.' && (self.board[0][0] == self.board[0][2] && self.board[0][0] == self.board[0][1])
+        self.board[0][0] != Pieces::Empty && (self.board[0][0] == self.board[0][2] && self.board[0][0] == self.board[0][1])
     }
 
     fn check_centre(&self) -> bool {
-        let vert = self.board[1][1] != '.' && (self.board[1][1] == self.board[0][1] && self.board[1][1] == self.board[2][1]);
-        let horz = self.board[1][1] != '.' && (self.board[1][1] == self.board[1][0] && self.board[1][1] == self.board[1][2]);
-        let right_diag = self.board[1][1] != '.' && (self.board[1][1] == self.board[0][0] && self.board[1][1] == self.board[2][2]);
-        let left_diag = self.board[1][1] != '.' && (self.board[1][1] == self.board[0][2] && self.board[1][1] == self.board[2][0]);
+        let vert = self.board[1][1] != Pieces::Empty && (self.board[1][1] == self.board[0][1] && self.board[1][1] == self.board[2][1]);
+        let horz = self.board[1][1] != Pieces::Empty && (self.board[1][1] == self.board[1][0] && self.board[1][1] == self.board[1][2]);
+        let right_diag = self.board[1][1] != Pieces::Empty && (self.board[1][1] == self.board[0][0] && self.board[1][1] == self.board[2][2]);
+        let left_diag = self.board[1][1] != Pieces::Empty && (self.board[1][1] == self.board[0][2] && self.board[1][1] == self.board[2][0]);
 
         vert || horz || right_diag || left_diag
     }
 
     fn check_left(&self) -> bool {
-        self.board[1][0] != '.' && self.board[1][0] == self.board[0][0] && self.board[1][0] == self.board[2][0]
+        self.board[1][0] != Pieces::Empty && self.board[1][0] == self.board[0][0] && self.board[1][0] == self.board[2][0]
     }
 
     fn check_right(&self) -> bool {
-        self.board[1][2] != '.' && self.board[1][2] == self.board[0][2] && self.board[1][2] == self.board[2][2]
+        self.board[1][2] != Pieces::Empty && self.board[1][2] == self.board[0][2] && self.board[1][2] == self.board[2][2]
     }
 
     fn check_bottom(&self) -> bool {
-        self.board[2][1] != '.' && self.board[2][1] == self.board[2][0] && self.board[2][1] == self.board[2][2]
+        self.board[2][1] != Pieces::Empty && self.board[2][1] == self.board[2][0] && self.board[2][1] == self.board[2][2]
     }
 }
 
@@ -96,7 +92,7 @@ impl Display for Board {
             try!(write!(f, "{} ", row_names[row]));
 
             for col in 0..self.board[row].len() {
-                try!(write!(f, " {} ", self.board[row as usize][col as usize]));
+                try!(write!(f, " {:?} ", self.board[row as usize][col as usize]));
             }
             try!(write!(f, "\n"));
         }

@@ -1,6 +1,6 @@
 [package]
 name = "noughts-and-crosses"
 version = "0.1.0"
-authors = ["James Tease <james.tease@replgroup.com>"]
+authors = ["James Tease <james@jamestease.co.uk>"]
 
 [dependencies]
