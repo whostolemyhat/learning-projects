@@ -68,8 +68,7 @@ pub fn reducer(state: &State, action: Action) -> State {
 
 #[derive(Clone)]
 pub enum BoardAction {
-    Update(u8, u8),
-    Check
+    Update(u8, u8, Pieces)
 }
 
 fn board_reducer(state: &Board, action: &Action) -> Board {
@@ -77,12 +76,9 @@ fn board_reducer(state: &Board, action: &Action) -> Board {
 
     match *action {
         Action::BoardUpdate(ref board_action) => match *board_action {
-            BoardAction::Update(x, y) => {
-                new_board.board[x as usize][y as usize] = Pieces::Player;
+            BoardAction::Update(x, y, ref Pieces) => {
+                new_board.board[x as usize][y as usize] = Pieces.clone();
             },
-            BoardAction::Check => {
-                new_board.check_neighbours();
-            }
         },
         _ => ()
     }
