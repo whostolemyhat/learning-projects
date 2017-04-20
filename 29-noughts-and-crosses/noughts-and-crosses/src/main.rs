@@ -7,29 +7,36 @@ use rand::Rng;
 use std::io;
 
 use board::{ Board, Pieces };
-use store::{ Store, State, BoardAction, reducer };
-use store::Action::{ BoardUpdate };
+use store::{ Store, State, GameStatus, BoardAction, WinnerAction, StatusAction, reducer };
+use store::Action::{ BoardUpdate, Winner, Status };
 
-fn winner(token: Pieces) {
-    println!("game over! {} wins", token);
+fn winner(store: &mut Store, token: Pieces) {
+    store.dispatch(Winner(WinnerAction::Update(token.clone())));
+
+    if token == Pieces::Player {
+        store.dispatch(Status(StatusAction::Update(GameStatus::Won)));
+    } else {
+        store.dispatch(Status(StatusAction::Update(GameStatus::Lost)));
+    }
 }
 
-fn check_neighbours(board: &Board) {
-    if check_top(&board) {
-        let token = board.board[0][0].clone();
-        winner(token);
-    } else if check_centre(&board) {
-        let token = board.board[1][1].clone();
-        winner(token);
-    } else if check_left(&board) {
-        let token = board.board[1][0].clone();
-        winner(token);
-    } else if check_right(&board) {
-        let token = board.board[1][2].clone();
-        winner(token);
-    } else if check_bottom(&board) {
-        let token = board.board[2][1].clone();
-        winner(token);
+fn check_neighbours(store: &mut Store) {
+    // TODO tidy this up
+    if check_top(&store.state.board) {
+        let token = store.state.board.board[0][0].clone();
+        winner(store, token);
+    } else if check_centre(&store.state.board) {
+        let token = store.state.board.board[1][1].clone();
+        winner(store, token);
+    } else if check_left(&store.state.board) {
+        let token = store.state.board.board[1][0].clone();
+        winner(store, token);
+    } else if check_right(&store.state.board) {
+        let token = store.state.board.board[1][2].clone();
+        winner(store, token);
+    } else if check_bottom(&store.state.board) {
+        let token = store.state.board.board[2][1].clone();
+        winner(store, token);
     }
 }
 
@@ -58,7 +65,7 @@ fn check_bottom(board: &Board) -> bool {
     board.board[2][1] != Pieces::Empty && board.board[2][1] == board.board[2][0] && board.board[2][1] == board.board[2][2]
 }
 
-fn place_piece(pos: &str, store: &mut Store, token: Pieces) {
+fn place_piece(pos: &str, mut store: &mut Store, token: Pieces) {
     // split on every character and remove any empty strings
     let position: Vec<&str> = pos.trim().split("").filter(|s| !s.is_empty()).collect();
 
@@ -72,16 +79,19 @@ fn place_piece(pos: &str, store: &mut Store, token: Pieces) {
             "c" => 2,
             _ => 0
         };
-        // board.update(x, (y - 1));
         store.dispatch(BoardUpdate(BoardAction::Update(x, y - 1, token)));
     }
 
     print_board(&store.state);
-    check_neighbours(&store.state.board);
+    check_neighbours(&mut store);
 }
 
 fn print_board(state: &State) {
     println!("{}", state.board);
+}
+
+fn print_winner(state: &State) {
+    println!("Game over! {:?}", state.status);
 }
 
 fn take_turn(mut store: &mut Store) {
@@ -96,16 +106,22 @@ fn take_turn(mut store: &mut Store) {
         _ => println!("I'm sorry, I don't understand {}", command)
     }
 
-    place_ai(&mut store);
+    if store.state.board.has_space() {
+        place_ai(&mut store);
+    } else {
+        // check if someones won yet otherwise
+        println!("Game over! It's a draw");
+    }
 }
 
 fn place_ai(mut store: &mut Store) {
-    let row_names = vec!["a", "b", "c"];
     let mut pos = choose_space();
     while !store.state.board.can_place(pos.0, pos.1 - 1) {
         pos = choose_space();
     }
 
+    // TODO: this is silly
+    let row_names = vec!["a", "b", "c"];
     let x = row_names[pos.0 as usize];
     let pos_string = format!("{}{}", x, pos.1);
 
@@ -121,9 +137,17 @@ fn choose_space() -> (u8, u8) {
 
 fn main() {
     let mut store = Store::create_store(reducer);
+    store.dispatch(Status(StatusAction::Update(GameStatus::Playing)));
+
     print_board(&store.state);
 
     loop {
-        take_turn(&mut store);
+        if store.state.status == GameStatus::Playing {
+            take_turn(&mut store);
+        } else {
+            break;
+        }
     }
+
+    print_winner(&store.state);
 }

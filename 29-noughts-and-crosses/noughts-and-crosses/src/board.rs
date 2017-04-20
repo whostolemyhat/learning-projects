@@ -35,10 +35,22 @@ impl Board {
         }
     }
 
-    pub fn update(&mut self, x: u8, y: u8) {
+    pub fn update(&mut self, x: u8, y: u8, token: &Pieces) {
         if self.can_place(x, y) {
-            self.board[x as usize][y as usize] = Pieces::Player;
+            self.board[x as usize][y as usize] = token.clone();
         }
+    }
+
+    pub fn has_space(&self) -> bool {
+        let mut space = false;
+        for row in &self.board {
+            if row.contains(&Pieces::Empty) {
+                space = true;
+                break;
+            }
+        };
+
+        space
     }
 
     pub fn can_place(&self, x: u8, y: u8) -> bool {

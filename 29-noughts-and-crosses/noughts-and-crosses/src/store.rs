@@ -27,7 +27,7 @@ impl Store {
     }
 }
 
-#[derive(Clone)]
+#[derive(Clone, PartialEq, Debug)]
 pub enum GameStatus {
     Playing,
     Won,
@@ -76,8 +76,8 @@ fn board_reducer(state: &Board, action: &Action) -> Board {
 
     match *action {
         Action::BoardUpdate(ref board_action) => match *board_action {
-            BoardAction::Update(x, y, ref Pieces) => {
-                new_board.board[x as usize][y as usize] = Pieces.clone();
+            BoardAction::Update(x, y, ref token) => {
+                new_board.update(x, y, token);
             },
         },
         _ => ()
@@ -111,8 +111,8 @@ pub enum WinnerAction {
     Update(Pieces)
 }
 
-fn winner_reducer(state: &Pieces, action: &Action) -> Pieces {
-    let mut new_winner: Pieces = state.clone();
+fn winner_reducer(winner: &Pieces, action: &Action) -> Pieces {
+    let mut new_winner: Pieces = winner.clone();
 
     match *action {
         Action::Winner(ref winner_action) => match *winner_action {
