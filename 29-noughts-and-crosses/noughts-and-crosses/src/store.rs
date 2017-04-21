@@ -15,9 +15,9 @@ impl Store {
         }
     }
 
-    pub fn subscribe(&mut self, listener: fn(&State)) {
-        self.listeners.push(listener);
-    }
+    // pub fn subscribe(&mut self, listener: fn(&State)) {
+    //     self.listeners.push(listener);
+    // }
 
     pub fn dispatch(&mut self, action: Action) {
         self.state = (self.reducer)(&self.state, action);
@@ -31,7 +31,8 @@ impl Store {
 pub enum GameStatus {
     Playing,
     Won,
-    Lost
+    Lost,
+    Draw
 }
 
 #[derive(Clone)]
