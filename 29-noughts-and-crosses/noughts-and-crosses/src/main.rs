@@ -11,8 +11,6 @@ use board::{ Pieces };
 use store::{ Store, State, GameStatus, BoardAction, WinnerAction, StatusAction, reducer };
 use store::Action::{ BoardUpdate, Winner, Status };
 
-// when we get here, we need store from somewhere
-// cos we don't want to pass it to check_neighbours
 fn winner(store: &mut Store, token: Pieces) {
     store.dispatch(Winner(WinnerAction::Update(token.clone())));
 
