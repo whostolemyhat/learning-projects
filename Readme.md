@@ -58,31 +58,32 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 23. [ ] Write a programme which will perform the job of moving the file from one location to another. The source and destination path will be entered by the user. Perform the required error checking and handle the exceptions accordingly.
 24. [ ] Create a sophisticated linked list class. You should be able to insert and delete nodes anywhere in the list, and the nodes should have pointers to nodes both in front and behind them.
 25. [ ] Create a programme that implements a database. The fields are hard-coded, and the data is saved in a binary file. Although this isn't really flexibility, you aren't relying on any external libraries or functions.
-26. [ ] Create a command-line todo list. Users should be able to add, complete and delete items. Bonus: use a database (eg SQLite) to persist todo items between programme runs.
+26. [x] Create a command-line todo list. Users should be able to add, complete and delete items. Bonus: use a database (eg SQLite) to persist todo items between programme runs.
 
 ## Expert
 
-- [ ] Implement your own `strstr`.
 - [ ] Write a programme which acted like a personal planner. A user can input an event, note things to-do on a certain date.
-- [ ] Noughts and crosses game.
-- [ ] Write a phone/address book programme, with data save in binary files. The users should be able to add/delete/change the data.
+28. [ ] Make a Markov chain generator. Read text from a source, create a histogram and allow different prefix lengths. See [Think Python](http://greenteapress.com/thinkpython2/html/thinkpython2014.html#sec159) for info.
+29. [x] Noughts and crosses game.
+- [ ] Write a phone/address book programme, with persistent data. The users should be able to add/delete/change the data.
 - [ ] Write a simple payroll programme, that would include pay rates, and hours work for employees.
-- [ ] Create a few classes that model playing cards. Then use this framework to create your favorite card game. Blackjack etc
-- [ ] Create a few classes that model chess pieces. Then develop a real chess game.
+- [ ] Write a card game, eg blackjack
+- [ ] Create a chess game.
 - [ ] Create a binary tree which has search and sorting functions.
 - [ ] Create a Quine, (a programme that prints out its own source code).
-- [ ] Implement your own version of the Standard Template Library.
+- [ ] [C++] Implement your own `strstr`.
+- [ ] [C++] Implement your own version of the Standard Template Library.
 - [ ] Create a Youtube video downloader
+- [ ] [Make a pokedex](http://codereview.stackexchange.com/questions/135293/basic-pokedex-in-c) - use a database, enums for types/gender etc
 
 ## Graphics
 
 - [ ] Write a programme to draw a rectangle, ellipse, square, circle, point and line based on user input.
-- [ ] Write a programme to emulate Microsoft Paint. It should be possible to switch between different tools (circle, rectangle, eraser etc) using pre-defined key strokes.
-- [ ] Write a programme to plot a simple x-y graph for a harcoded function (e.g. y=cos(x)). It should be possible to zoom in on any part of the graph.
+- [ ] Create a paint programme. It should be possible to switch between different tools (circle, rectangle, eraser etc) using pre-defined key strokes.
+- [ ] Plot a simple x-y graph for a hardcoded function (e.g. y=cos(x)). It should be possible to zoom in on any part of the graph.
 - [ ] Write a programme to plot a graph of given equation of form y=f(x) and a range for x as command line arguments. (e.g. my_graph_plotter -eq="y=x*x" -xmin=-10, -xmax=10) (PS: more to do with equation solving than graphics)
 - [ ] Write the classic brick break-out game (Arkanoid/Breakout)
 
-- [ ] [make a pokedex](http://codereview.stackexchange.com/questions/135293/basic-pokedex-in-c) - use a database, enums for types/gender etc
 
 Good resources for Rust:
 - https://github.com/kud1ing/awesome-rust
