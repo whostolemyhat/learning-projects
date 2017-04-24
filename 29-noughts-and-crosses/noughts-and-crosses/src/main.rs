@@ -49,20 +49,27 @@ fn take_turn(mut store: &mut Store) {
     io::stdin().read_line(&mut command)
         .expect("Failed to read input");
 
+    // expect input to be in format "a1" etc
     match command.trim().len() {
         2 => {
+            // split into chars, remove any empty pieces
             let position: Vec<&str> = command.trim().split("").filter(|s| !s.is_empty()).collect();
-            let y = position[1].parse::<u8>().unwrap();
-            let x: u8 = match position[0] {
-                "b" => 1,
-                "c" => 2,
-                _ => 0
-            };
 
-            if y > 0 && y < 4 {
-                place_piece((x, y), &mut store, Pieces::Player)
-            } else {
-                println!("Try choosing somewhere on the board");
+            match position[1].parse::<u8>() {
+                Ok(y) => {
+                    let x: u8 = match position[0] {
+                        "b" => 1,
+                        "c" => 2,
+                        _ => 0
+                    };
+
+                    if y > 0 && y < 4 {
+                        place_piece((x, y), &mut store, Pieces::Player)
+                    } else {
+                        println!("Try choosing somewhere on the board");
+                    }
+                },
+                Err(_) => println!("Make sure you enter a position on the board (eg a1)")
             }
         },
         _ => println!("I'm sorry, I don't understand {}", command)
