@@ -1,5 +1,8 @@
+//! Board layout and logic
+
 use std::fmt::{ Display, Formatter, Result };
 
+/// The states for a place on the board
 #[derive(PartialEq, Clone, Debug)]
 pub enum Pieces {
     Player,
@@ -19,6 +22,7 @@ impl Display for Pieces {
     }
 }
 
+/// The board
 #[derive(Clone)]
 pub struct Board {
     pub board: Vec<Vec<Pieces>>
@@ -35,12 +39,14 @@ impl Board {
         }
     }
 
+    /// Add a piece to the board
     pub fn update(&mut self, x: u8, y: u8, token: &Pieces) {
         if self.can_place(x, y) {
             self.board[x as usize][y as usize] = token.clone();
         }
     }
 
+    /// Checks that there are still empty spaces on the board
     pub fn has_space(&self) -> bool {
         let mut space = false;
         for row in &self.board {
@@ -53,12 +59,16 @@ impl Board {
         space
     }
 
+
+    /// Checks particular co-ord on the board is available to play
     pub fn can_place(&self, x: u8, y: u8) -> bool {
         self.board[x as usize][y as usize] == Pieces::Empty
     }
 
+    /// Check if any line has all the same pieces
+    /// Since it's only a small board we don't need to check every square for neighbours
+    /// just top, bottom, left, right and two diagonal rows
     pub fn check_neighbours(&self) -> Pieces {
-        // only small board so don't need to check every square for neighbours
         let mut token = Pieces::Empty;
 
         if self.check_top() {

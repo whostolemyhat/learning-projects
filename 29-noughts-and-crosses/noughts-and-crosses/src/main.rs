@@ -1,3 +1,10 @@
+//! # Noughts and Crosses
+//!
+//! A noughts and crosses game for the command line
+//! Based on Redux principles - one (immutable) store for game state
+//! all changes to state are requested via reducer functions which
+//! return a new state with the changes applied.
+
 extern crate rand;
 
 mod board;
@@ -11,6 +18,7 @@ use board::{ Pieces };
 use store::{ Store, State, GameStatus, BoardAction, WinnerAction, StatusAction, reducer };
 use store::Action::{ BoardUpdate, Winner, Status };
 
+/// Sets the winner in game state, and updates status to not be 'playing'
 fn winner(store: &mut Store, token: Pieces) {
     store.dispatch(Winner(WinnerAction::Update(token.clone())));
 
@@ -21,6 +29,8 @@ fn winner(store: &mut Store, token: Pieces) {
     }
 }
 
+/// Put a piece on the board at position
+/// then check to see if anyone has won
 fn place_piece(pos: (u8, u8), mut store: &mut Store, token: Pieces) {
     store.dispatch(BoardUpdate(BoardAction::Update(pos.0, pos.1 - 1, token)));
 
@@ -34,14 +44,20 @@ fn place_piece(pos: (u8, u8), mut store: &mut Store, token: Pieces) {
     };
 }
 
+/// print out the current state of the board
 fn print_board(state: &State) {
     println!("{}", state.board);
 }
 
+/// Show the winner
 fn print_winner(state: &State) {
     println!("Game over! {:?}", state.status);
 }
 
+/// Main part of the game loop
+/// - take in player input and parse
+/// - attempt to place a piece if valid
+/// - try to trigger the AI to place a piece
 fn take_turn(mut store: &mut Store) {
     // get input
     println!("Enter position: ");
@@ -83,6 +99,7 @@ fn take_turn(mut store: &mut Store) {
     }
 }
 
+/// Start the game loop
 fn main() {
     let mut store = Store::create_store(reducer);
     store.dispatch(Status(StatusAction::Update(GameStatus::Playing)));
@@ -103,4 +120,51 @@ fn main() {
     }
 
     print_winner(&store.state);
+}
+
+#[cfg(test)]
+mod tests {
+    use board::{ Pieces };
+    use store::{ Store, GameStatus, StatusAction, reducer };
+    use store::Action::{ Status };
+
+    #[test]
+    fn can_place() {
+        let mut store = Store::create_store(reducer);
+        store.dispatch(Status(StatusAction::Update(GameStatus::Playing)));
+
+        assert!(store.state.board.board[0][0] == Pieces::Empty);
+
+        super::place_piece((0, 1), &mut store, Pieces::Player);
+        assert!(store.state.board.board[0][0] == Pieces::Player);
+
+        super::place_piece((1, 1), &mut store, Pieces::AI);
+        assert!(store.state.board.board[1][0] == Pieces::AI);
+    }
+
+    #[test]
+    fn cant_overwrite() {
+        let mut store = Store::create_store(reducer);
+        store.dispatch(Status(StatusAction::Update(GameStatus::Playing)));
+        assert!(store.state.board.board[0][0] == Pieces::Empty);
+
+        super::place_piece((0, 1), &mut store, Pieces::Player);
+        assert!(store.state.board.board[0][0] == Pieces::Player);
+
+        super::place_piece((0, 1), &mut store, Pieces::AI);
+        assert!(store.state.board.board[0][0] == Pieces::Player);
+    }
+
+    #[test]
+    fn can_win() {
+        let mut store = Store::create_store(reducer);
+        store.dispatch(Status(StatusAction::Update(GameStatus::Playing)));
+        assert!(store.state.board.board[0][0] == Pieces::Empty);
+
+        super::place_piece((0, 1), &mut store, Pieces::Player);
+        super::place_piece((0, 2), &mut store, Pieces::Player);
+        super::place_piece((0, 3), &mut store, Pieces::Player);
+        assert!(store.state.status == GameStatus::Won);
+        assert!(store.state.winner == Pieces::Player);
+    }
 }

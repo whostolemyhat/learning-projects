@@ -1,8 +1,11 @@
+//! Contains game state and the store, and related reducer functions
+
 use board::{ Board, Pieces };
 
+/// The store - all game data is saved here and is read-only
+/// The only way to change this data is through a reducer function
 pub struct Store {
     pub state: State,
-    listeners: Vec<fn(&State)>,
     reducer: fn(&State, Action) -> State
 }
 
@@ -10,20 +13,13 @@ impl Store {
     pub fn create_store(reducer: fn(&State, Action) -> State) -> Store {
         Store {
             state: State::default(),
-            listeners: Vec::new(),
             reducer: reducer
         }
     }
 
-    // pub fn subscribe(&mut self, listener: fn(&State)) {
-    //     self.listeners.push(listener);
-    // }
-
+    /// Trigger an update on the store
     pub fn dispatch(&mut self, action: Action) {
         self.state = (self.reducer)(&self.state, action);
-        for listener in &self.listeners {
-            listener(&self.state);
-        }
     }
 }
 
@@ -35,6 +31,10 @@ pub enum GameStatus {
     Draw
 }
 
+// Current state of the game
+/// - board: all pieces
+/// - status: is the game in progress or has the player won or lost
+/// - winner: the token of the winning player
 #[derive(Clone)]
 pub struct State {
     pub board: Board,
@@ -52,6 +52,7 @@ impl State {
     }
 }
 
+/// Actions which can be dispatched to updated the state
 #[derive(Clone)]
 pub enum Action {
     BoardUpdate(BoardAction),
@@ -59,6 +60,8 @@ pub enum Action {
     Winner(WinnerAction)
 }
 
+/// Reducers take a slice of state data and an action, then return a new state slice
+/// with updated data
 pub fn reducer(state: &State, action: Action) -> State {
     State {
         board: board_reducer(&state.board, &action),
@@ -67,6 +70,7 @@ pub fn reducer(state: &State, action: Action) -> State {
     }
 }
 
+/// Board actions and reducer just add pieces to the board
 #[derive(Clone)]
 pub enum BoardAction {
     Update(u8, u8, Pieces)
@@ -87,6 +91,7 @@ fn board_reducer(state: &Board, action: &Action) -> Board {
     new_board
 }
 
+/// Game action/reducer changes the status (is game in progress or not)
 #[derive(Clone)]
 pub enum StatusAction {
     Update(GameStatus)
@@ -107,6 +112,7 @@ fn status_reducer(state: &GameStatus, action: &Action) -> GameStatus {
     new_status
 }
 
+/// Winner action/reducer contains the token of the winning player
 #[derive(Clone)]
 pub enum WinnerAction {
     Update(Pieces)
