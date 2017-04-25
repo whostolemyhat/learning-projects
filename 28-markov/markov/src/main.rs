@@ -39,7 +39,12 @@ fn create_histogram(text: &String) -> HashMap<String, u32> {
 }
 
 fn get_total_words(histogram: &HashMap<String, u32>) -> u32 {
+    // fold === reduce
     histogram.iter().fold(0, |acc, words| acc + words.1)
+}
+
+fn create_markov() {
+
 }
 
 // fn keyword_occurences(word: String, histogram: HashMap<String, u32>) -> Result<Some, None> {
@@ -47,7 +52,8 @@ fn get_total_words(histogram: &HashMap<String, u32>) -> u32 {
 // }
 
 fn main() {
-    // read file or whatever
+    // read file for now
+    // TODO: file, input or url
     let text = open_file(&Path::new("./emma.txt"));
 
     let histogram = create_histogram(&text);

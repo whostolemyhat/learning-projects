@@ -1,9 +1,10 @@
 //! Contains the AI logic
 
-extern crate rand;
-
-// not sure why use rand::Rng isn't happy
-use self::rand::Rng;
+// rand crate is imported in main (extern crate rand)
+// so can just use here
+// need 'use rand' here as well since there's no extern decl
+use rand;
+use rand::Rng;
 
 use store::{ Store };
 use board::{ Pieces };
