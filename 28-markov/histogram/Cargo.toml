@@ -1,6 +1,6 @@
 [package]
 authors = ["James Tease <james@jamestease.co.uk>"]
-name = "markov"
+name = "histogram"
 version = "0.1.0"
 [dependencies]
 regex = "0.2"
