@@ -16,11 +16,11 @@ struct Markov {
     order: u8
 }
 
-fn create_markov(filename: &Path) -> Markov {
+fn create_markov(filename: &Path, order: u8) -> Markov {
     let mut markov = Markov {
         dict: HashMap::new(),
         prefix: Vec::new(),
-        order: 3
+        order: order
     };
 
     let file = match File::open(&filename) {
@@ -95,13 +95,18 @@ fn main() {
     } else {
         let ref filename = args[1];
         let mut sentence_length = 200;
+        let mut order: u8 = 2;
 
         if args.len() == 3 {
             sentence_length = args[2].parse().expect("Enter a number");
         }
 
+        if args.len() == 4 {
+            order = args[3].parse().expect("Enter a number");
+        }
+
         // TODO: file, input or url
-        let markov = create_markov(&Path::new(filename));
+        let markov = create_markov(&Path::new(filename), order);
         println!("{}", get_random_text(&markov, sentence_length));
     }
 }
