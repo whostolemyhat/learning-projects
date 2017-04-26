@@ -99,7 +99,7 @@ fn main() {
         if args.len() == 3 {
             sentence_length = args[2].parse().expect("Enter a number");
         }
-        // read file for now
+
         // TODO: file, input or url
         let markov = create_markov(&Path::new(filename));
         println!("{}", get_random_text(&markov, sentence_length));

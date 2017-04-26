@@ -5,48 +5,11 @@ use std::collections::HashMap;
 
 use regex::Regex;
 
-fn strip(text: &String) -> String {
-    let no_punctuation = Regex::new(r"[^a-zA-Z0-9]").unwrap();
-
-    no_punctuation.replace_all(&text, " ").to_string()
-}
-
 #[derive(Debug)]
 pub struct Keyword {
     phrase: String,
     occurences: u32,
     percentage: f32
-}
-
-pub fn keyword_occurences(word: &str, histogram: &HashMap<String, u32>, total: &u32) -> Option<Keyword> {
-    match histogram.get(word) {
-        Some(value) => {
-            Some(Keyword {
-                phrase: word.to_string(),
-                occurences: *value,
-                percentage: *value as f32 / *total as f32
-            })
-        },
-        None => None
-    }
-}
-
-fn append_to_histogram(text: &String, histogram: &mut HashMap<String, u32>) {
-    for word in strip(&text).split(" ").filter(|s| !s.is_empty()) {
-        *histogram.entry(word.to_lowercase()).or_insert(0) += 1;
-    }
-}
-
-pub fn sort_histogram(histogram: &HashMap<String, u32>) -> Vec<(&String, &u32)> {
-    let mut sorted: Vec<_> = histogram.iter().collect();
-    // sort inline
-    sorted.sort_by(|a, b| b.1.cmp(a.1));
-    sorted
-}
-
-pub fn get_total_words(histogram: &HashMap<String, u32>) -> u32 {
-    // fold === reduce
-    histogram.iter().fold(0, |acc, words| acc + words.1)
 }
 
 // mega slow in dev, fast in --release
@@ -66,4 +29,41 @@ pub fn process_file(filename: &Path) -> HashMap<String, u32> {
     }
 
     histogram
+}
+
+pub fn keyword_occurences(word: &str, histogram: &HashMap<String, u32>, total: &u32) -> Option<Keyword> {
+    match histogram.get(word) {
+        Some(value) => {
+            Some(Keyword {
+                phrase: word.to_string(),
+                occurences: *value,
+                percentage: *value as f32 / *total as f32
+            })
+        },
+        None => None
+    }
+}
+
+pub fn sort_histogram(histogram: &HashMap<String, u32>) -> Vec<(&String, &u32)> {
+    let mut sorted: Vec<_> = histogram.iter().collect();
+    // sort inline
+    sorted.sort_by(|a, b| b.1.cmp(a.1));
+    sorted
+}
+
+pub fn get_total_words(histogram: &HashMap<String, u32>) -> u32 {
+    // fold === reduce
+    histogram.iter().fold(0, |acc, words| acc + words.1)
+}
+
+fn append_to_histogram(text: &String, histogram: &mut HashMap<String, u32>) {
+    for word in strip(&text).split(" ").filter(|s| !s.is_empty()) {
+        *histogram.entry(word.to_lowercase()).or_insert(0) += 1;
+    }
+}
+
+fn strip(text: &String) -> String {
+    let no_punctuation = Regex::new(r"[^a-zA-Z0-9]").unwrap();
+
+    no_punctuation.replace_all(&text, " ").to_string()
 }
