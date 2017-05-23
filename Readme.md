@@ -75,6 +75,7 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 - [ ] [C++] Implement your own version of the Standard Template Library.
 - [ ] Create a Youtube video downloader
 - [ ] [Make a pokedex](http://codereview.stackexchange.com/questions/135293/basic-pokedex-in-c) - use a database, enums for types/gender etc
+- [ ] Video format converter, eg .mov to .mp4 (ie frontend to ffmpeg)
 
 ## Graphics
 
