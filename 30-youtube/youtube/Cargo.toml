@@ -1,0 +1,8 @@
+[package]
+name = "youtube"
+version = "0.1.0"
+authors = ["James Tease <james.tease@basekit.com>"]
+
+[dependencies]
+reqwest = "0.6.2"
+html5ever = "*"

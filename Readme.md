@@ -63,8 +63,9 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 ## Expert
 
 - [ ] Write a programme which acted like a personal planner. A user can input an event, note things to-do on a certain date.
-28. [ ] Make a Markov chain generator. Read text from a source, create a histogram and allow different prefix lengths. See [Think Python](http://greenteapress.com/thinkpython2/html/thinkpython2014.html#sec159) for info.
+28. [x] Make a Markov chain generator. Read text from a source, create a histogram and allow different prefix lengths. See [Think Python](http://greenteapress.com/thinkpython2/html/thinkpython2014.html#sec159) for info.
 29. [x] Noughts and crosses game.
+30. [ ] Create a Youtube video downloader
 - [ ] Write a phone/address book programme, with persistent data. The users should be able to add/delete/change the data.
 - [ ] Write a simple payroll programme, that would include pay rates, and hours work for employees.
 - [ ] Write a card game, eg blackjack
@@ -73,7 +74,6 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 - [ ] Create a Quine, (a programme that prints out its own source code).
 - [ ] [C++] Implement your own `strstr`.
 - [ ] [C++] Implement your own version of the Standard Template Library.
-- [ ] Create a Youtube video downloader
 - [ ] [Make a pokedex](http://codereview.stackexchange.com/questions/135293/basic-pokedex-in-c) - use a database, enums for types/gender etc
 - [ ] Video format converter, eg .mov to .mp4 (ie frontend to ffmpeg)
 
