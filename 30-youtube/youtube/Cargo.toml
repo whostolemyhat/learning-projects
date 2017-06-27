@@ -1,9 +1,9 @@
 [package]
 name = "youtube"
 version = "0.1.0"
-authors = ["James Tease <james.tease@basekit.com>"]
+authors = ["James Tease <james@jamestease.co.uk>"]
 
 [dependencies]
 reqwest = "0.6.2"
-html5ever = "*"
-kuchiki = "0.5"
+select = "0.4.1"
+regex = "0.2"
