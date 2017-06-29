@@ -7,3 +7,4 @@ authors = ["James Tease <james@jamestease.co.uk>"]
 reqwest = "0.6.2"
 select = "0.4.1"
 regex = "0.2"
+serde_json = "1.0"
