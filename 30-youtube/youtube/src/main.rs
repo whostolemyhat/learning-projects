@@ -25,6 +25,19 @@ fn parse_json(text: &str, start: usize) -> Result<Value, Error> {
     Ok(parsed)
 }
 
+// fn split_params(url: &str) -> HashMap<&str, &str> {
+//     println!("{:?}", url);
+//     let mut params: HashMap<&str, &str> = HashMap::new();
+
+//     let stuff = url.split("&");
+//     for s in stuff {
+//         let param: Vec<&str> = s.split("=").collect();
+//         params.insert(param[0], param[1]);
+//     }
+
+//     params
+// }
+
 fn main() {
     let mut res = reqwest::get("https://www.youtube.com/watch?v=yfG94k41MrI").unwrap();
 
@@ -51,23 +64,23 @@ fn main() {
                 Ok(parsed) => {
                     let stream_map: String = parsed["args"]["url_encoded_fmt_stream_map"].to_string();
                     let mut videos: Vec<HashMap<&str, &str>> = vec![];
+
                     let urls: Vec<&str> = stream_map.split(",").collect();
-
-
                     for url in urls {
-                        let mut params: HashMap<&str, &str> = HashMap::new();
+                        let mut video: HashMap<&str, &str> = HashMap::new();
 
-                        let stuff = url.split("&");
-                        for s in stuff {
-                            let param: Vec<&str> = s.split("=").collect();
-                            // println!("{:?}", param);
-                            params.insert(param[0], param[1]);
+                        let params = url.split("&");
+                        for param in params {
+                            let attr: Vec<&str> = param.split("=").collect();
+                            video.insert(attr[0], attr[1]);
                         }
 
-                        videos.push(params);
-                    }
+                        videos.push(video);
+                    };
 
-                    println!("{:?}", videos);
+                    for video in videos {
+                        println!("{:?}", video);
+                    }
                     break;
                 },
                 Err(e) => panic!("Error parsing json: {}", e)
