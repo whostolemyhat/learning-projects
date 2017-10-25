@@ -2,6 +2,7 @@ extern crate reqwest;
 extern crate select;
 extern crate regex;
 extern crate serde_json;
+extern crate url;
 
 use std::io::{ Read };
 use std::collections::HashMap;
@@ -9,6 +10,7 @@ use select::document::Document;
 use select::predicate::{ Name };
 use regex::Regex;
 use serde_json::{ Value, Error };
+use url::percent_encoding::{ percent_decode };
 
 fn parse_json(text: &str, start: usize) -> Result<Value, Error> {
     let end_re = Regex::new(r";ytplayer.load =").unwrap();
@@ -25,21 +27,9 @@ fn parse_json(text: &str, start: usize) -> Result<Value, Error> {
     Ok(parsed)
 }
 
-// fn split_params(url: &str) -> HashMap<&str, &str> {
-//     println!("{:?}", url);
-//     let mut params: HashMap<&str, &str> = HashMap::new();
-
-//     let stuff = url.split("&");
-//     for s in stuff {
-//         let param: Vec<&str> = s.split("=").collect();
-//         params.insert(param[0], param[1]);
-//     }
-
-//     params
-// }
-
 fn main() {
-    let mut res = reqwest::get("https://www.youtube.com/watch?v=yfG94k41MrI").unwrap();
+    // let mut res = reqwest::get("https://www.youtube.com/watch?v=yfG94k41MrI").unwrap();
+    let mut res = reqwest::get("https://www.youtube.com/watch?v=NntQ86FHcMY").unwrap();
 
     let mut content = String::new();
     res.read_to_string(&mut content);
@@ -78,8 +68,17 @@ fn main() {
                         videos.push(video);
                     };
 
-                    for video in videos {
-                        println!("{:?}", video);
+                    // for video in videos {
+                        // println!("{:?}", video);
+                    // }
+                    println!("{:?}", videos[0]);
+                    let url = percent_decode(&videos[0].get("url").unwrap().as_bytes()).decode_utf8().unwrap();
+                    println!("{:?}", url);
+                    let dl_url = format!("{}&signature={}&keepalive=yes", url, videos[0].get("s").unwrap().to_owned());
+
+                    match reqwest::get(dl_url.as_str()) {
+                        Ok(res) => println!("{:?}", res),
+                        Err(e) => println!("{:?}", e)
                     }
                     break;
                 },
