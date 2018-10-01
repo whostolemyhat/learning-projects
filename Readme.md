@@ -65,7 +65,7 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 - [ ] Write a programme which acted like a personal planner. A user can input an event, note things to-do on a certain date.
 28. [x] Make a Markov chain generator. Read text from a source, create a histogram and allow different prefix lengths. See [Think Python](http://greenteapress.com/thinkpython2/html/thinkpython2014.html#sec159) for info.
 29. [x] Noughts and crosses game.
-30. [ ] Create a Youtube video downloader
+30. [ ] Create a Youtube video downloader (actually really difficult cos Youtube tries to block everything)
 - [ ] Write a phone/address book programme, with persistent data. The users should be able to add/delete/change the data.
 - [ ] Write a simple payroll programme, that would include pay rates, and hours work for employees.
 - [ ] Write a card game, eg blackjack
@@ -86,6 +86,9 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 - [ ] Write a programme to plot a graph of given equation of form y=f(x) and a range for x as command line arguments. (e.g. my_graph_plotter -eq="y=x*x" -xmin=-10, -xmax=10) (PS: more to do with equation solving than graphics)
 - [ ] Write the classic brick break-out game (Arkanoid/Breakout)
 
+fuzzy search (levenstein)
+gui
+generative art
 
 Good resources for Rust:
 - https://github.com/kud1ing/awesome-rust
