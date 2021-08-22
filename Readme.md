@@ -56,7 +56,7 @@ List from http://www.cplusplus.com/forum/beginner/3473/
 21. [x] Read XHTML, remove the tags, then print out the remaining text.
 22. [x] Write a programme which performs addition, subtraction, multiplication of matrices. The dimensions of both the matrices would be specified by the user (dynamic memory allocation required). Use of structure or a class to define the matrix would be a good idea.
 23. [ ] Write a programme which will perform the job of moving the file from one location to another. The source and destination path will be entered by the user. Perform the required error checking and handle the exceptions accordingly.
-24. [ ] Create a sophisticated linked list class. You should be able to insert and delete nodes anywhere in the list, and the nodes should have pointers to nodes both in front and behind them.
+24. [ ] Create a sophisticated linked list class. You should be able to insert and delete nodes anywhere in the list, and the linked list should be (doubly linked)[https://en.wikipedia.org/wiki/Doubly_linked_list]. 
 25. [ ] Create a programme that implements a database. The fields are hard-coded, and the data is saved in a binary file. Although this isn't really flexibility, you aren't relying on any external libraries or functions.
 26. [x] Create a command-line todo list. Users should be able to add, complete and delete items. Bonus: use a database (eg SQLite) to persist todo items between programme runs.
 
